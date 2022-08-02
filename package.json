@@ -1,0 +1,25 @@
+{
+  "name": "catudy",
+  "version": "1.0.0",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "http-proxy-middleware": "^2.0.6"
+  },
+  "description": "",
+  "main": "index.js",
+  "proxy" : "http://localhost:8080",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youngsun0401/catudy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/youngsun0401/catudy/issues"
+  },
+  "homepage": "https://github.com/youngsun0401/catudy#readme"
+}
