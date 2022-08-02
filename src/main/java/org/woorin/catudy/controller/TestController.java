@@ -14,7 +14,7 @@ import org.woorin.catudy.service.TestService;
 public class TestController {
 	@Autowired private TestService testService;
 	
-	//// 주석주석
+	//// 주석주섬
 	@GetMapping("/")
 	String get_testPage() {
 		return "index";
