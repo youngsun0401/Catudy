@@ -1,0 +1,45 @@
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<meta charset="UTF-8">
+	<title>Chating</title>
+	<style type="text/css">
+		.testcss{
+			border: 1px solid black;
+			margin: 1px;
+		}
+	</style>
+	<script type="text/javascript" src="https://cdn.socket.io/4.5.1/socket.io.min.js"></script>
+</head>
+
+<body>
+	<!-- <iframe allowusermedia src="https://192.168.10.97:8000/" height="900px" width="500px" allow='camera *;microphone *'></iframe> -->
+	<!-- <iframe src="https://localhost:8000/" height="900px" width="500px" allow='camera *;microphone *'></iframe> -->
+	<!-- <span th:text="${hostname}">hostname</span> -->
+
+	<div id="welcome" class="testcss">
+		<form>
+			<input placeholder='room name' type="text" required value="1">
+			<button>Enter room</button>
+		</form>
+	</div>
+	<div id="call">
+		<div id="myStream" class="testcss">
+			<video id="myFace" class="testcss" autoplay=true playsinline=true width='400' height='400'></video>
+			<button id="mute">Mute</button>
+			<button id="camera">Cam Off</button>
+			<select id="cameras"></select>
+			<select id="mikes"></select>
+			<button onclick="test();">close</button>
+		</div>
+		<div id="peers">
+		</div>
+		<video id="peersFace" autoplay=true, playsinline=true></video>
+	</div>
+
+	<script type="text/javascript" th:src="@{/js/mySocket.js}"></script>
+
+</body>
+</html>
