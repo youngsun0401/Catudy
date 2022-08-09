@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Pacifico&display=swap');
+
+
+.leftBar{
+    width: 50px;
+    background-color: #FDE685;
+    height: 780px;
+    float : left;
+}
+
+.main{
+    height: 780px;
+    
+    
+}
+
+/* 로고 home 부분 */
+
+.logo{
+    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Pacifico', cursive;
+    width: 50px;
+    height: 30px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    text-align : center;
+    display : block;
+}
+
+/* 시각 */
+.clock{
+    width: 100%;
+    height: 20px;
+    background-color: #d2bd5c;
+    color: white;
+    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Pacifico', cursive;
+    margin-left: auto;
+    margin-right: auto;
+    text-align : center;
+    display : block;
+}
+
+/* 윗 바 */
+
+.topBar{
+    height: 30px;    
+    width: 100%;
+    background: linear-gradient(#444444 70%, #4f4f4f);
+    color: white;
+    font-family: 'Do Hyeon', sans-serif;
+    
+}
+
+/* 스터디룸이름 */
+.camName{
+    float: left;
+    margin-top: 4px;
+    margin-left: 10px;
+}
+/* 음소거 마이크 영상키기 전체화면기능들 */
+.tool{
+    text-align: center;
+    clear: both;    
+    left: 50%;
+    position: absolute;
+}
+
+
+/* 메인화면 */
+.view{
+    height: 750px;
+    width: 100%;
+}
+
+.cam{
+    width: 75%;
+    height: 100%;
+    float: left;    
+}
+
+.cam1{
+    height: 50%;
+}
+.cam2{
+    height: 50%;
+}
+
+/* 영상부분 */
+.showing{
+    float : left;
+    display: block;
+    border: 1px solid rgb(255, 0, 0);
+    width: 50%;
+    height: 100%;
+    background-color: black;
+}
+
+/* 누적시간 */
+.camTime{
+    float: right;
+    border: 1px solid rgb(0, 0, 255);
+    width: 100px;
+    height: 30px;
+    background-color: yellowgreen;
+    text-align: center;
+    
+}
+
+
+/* 채팅방 */
+.chat{
+    height: 100%;
+   
+}
+
+/* 왼쪽사이드바 */
+.line{
+    width: 1%;    
+    background: linear-gradient(#444444 70%, #4f4f4f);
+    height: 100%;
+    float : left;
+}
+
+.chatTitle{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid rgb(193, 192, 192);
+    border-right: 1px solid rgb(193, 192, 192);
+}
+
+.memberList{
+    overflow: auto;  
+    height:200px;
+    border-bottom: 1px solid rgb(193, 192, 192);
+    border-right: 1px solid rgb(193, 192, 192);
+
+    position:relative;
+
+}
+
+.chatScreen{   
+    border-right: 1px solid rgb(193, 192, 192);
+    border-bottom: 1px solid rgb(193, 192, 192);
+    height:420px;
+    background-color:#F8F9FA ;
+}
+
+.typing{
+    height: 30px;
+    border-right: 1px solid rgb(193, 192, 192);
+    border-bottom: 1px solid rgb(193, 192, 192);
+    
+    
+}
