@@ -5,12 +5,7 @@ import org.springframework.stereotype.Service;
 import org.woorin.catudy.mapper.MainMapper;
 
 @Service
-public class TestServiceImpl implements TestService {
+public class DocumentServiceImpl implements DocumentService {
 	@Autowired private MainMapper mapper;
-
-	@Override
-	public String testMethod(int p_id) {
-		return mapper.testSelect(p_id);
-	}
 
 }
