@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/java,macos,windows,maven,linux,eclipse,react
-# Edit at https://www.toptal.com/developers/gitignore?templates=java,macos,windows,maven,linux,eclipse,react
+# Created by https://www.toptal.com/developers/gitignore/api/windows,linux,macos,eclipse,java,maven
+# Edit at https://www.toptal.com/developers/gitignore?templates=windows,linux,macos,eclipse,java,maven
 
 ### Eclipse ###
 .metadata
@@ -160,21 +160,6 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
-### react ###
-.DS_*
-logs
-**/*.backup.*
-**/*.back.*
-
-node_modules
-bower_components
-
-*.sublime*
-
-psd
-thumb
-sketch
-
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -201,9 +186,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/java,macos,windows,maven,linux,eclipse,react
-<<<<<<< HEAD
-=======
-/.apt_generated_tests/
-/.vscode/
->>>>>>> refs/remotes/origin/cam-base--chat
+# End of https://www.toptal.com/developers/gitignore/api/windows,linux,macos,eclipse,java,maven
