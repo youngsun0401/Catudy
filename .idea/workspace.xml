@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="318e2dc4-b2ab-4341-a217-b1060036a74c" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/show/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/show/show.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +94,10 @@
       <workItem from="1660184553641" duration="33000" />
       <workItem from="1660184637614" duration="49000" />
       <workItem from="1660184894958" duration="240000" />
-      <workItem from="1660185753982" duration="13000" />
+      <workItem from="1660185753982" duration="200000" />
+      <workItem from="1660186589701" duration="866000" />
+      <workItem from="1660187549442" duration="907000" />
+      <workItem from="1660188661204" duration="1182000" />
     </task>
     <servers />
   </component>
