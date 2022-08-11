@@ -17,4 +17,10 @@ public class MainController {
 		System.out.println("HELLO");
         return "index";
     }
+
+    @GetMapping("/show")
+    public String show() {
+        System.out.println("HELLO SHOW");
+        return "show/show";
+    }
 }
