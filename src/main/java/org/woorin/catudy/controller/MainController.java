@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@RestController
+@Controller
 public class MainController {
 
-    @GetMapping("/api/hello")
+    @GetMapping("/")
     public String test() {
 		System.out.println("HELLO");
-        return "Hello, HELLO!";
+        return "index";
     }
 }
