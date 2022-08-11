@@ -91,8 +91,8 @@ div {
     text-align: center;
 }
 
-.index-user-time > p,
-.index-user-content > p {
+.index-user-time>p,
+.index-user-content>p {
     font-weight: 700;
     font-size: 16px;
 }
@@ -112,12 +112,14 @@ div {
     border-radius: 10px;
     padding: 20px;
     font-size: 14px;
+    transition: 0.3s;
 }
 
 .index-user-content {
     width: 800px;
     padding: 0;
     text-align: center;
+    transition: 0.3s;
 }
 
 
@@ -137,6 +139,11 @@ div {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.section-title p {
+    font-size: 24px;
+    font-weight: 500;
 }
 
 /* 탭 메뉴 */
@@ -161,6 +168,7 @@ div {
 
 .tab-list {
     margin-left: 150px;
+    margin-right: 150px;
     text-align: left;
     padding-left: 0;
 }
@@ -174,7 +182,8 @@ div {
 }
 
 .tab-list li:hover {
-    color: #F5B041;
+    cursor: pointer;
+    color: #F4D03F;
 }
 
 .select-sort {
@@ -191,21 +200,33 @@ div {
 
 .room-container {
     width: 100%;
-    padding: 20px 150px;
-    /* display: flex;
-    justify-content: space-between; */
-    gap: 1em;
+    height: 100%;
+    padding: 70px 150px;
 }
 
-.room-content > div {
-    width: 16%;
-    float: left;
+/* .room-content > div {
+    width: 20%;
+    /* float: left;
+} */
+
+.room-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1em;
 }
 
 .room-box {
     height: 300px;
     border: 1px solid #F2F3F4;
     border-radius: 5px;
+    flex-grow: 0;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.room-box:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
 .room-img {
@@ -236,8 +257,91 @@ div {
     margin: 0px 5px 0px 5px;
 }
 
+.middle-line {
+    width: 100%;
+    height: 1px;
+    border-top: 1px solid #D0D3D4;
+    margin-top: 30px;
+    position: relative;
+}
+
+.more-btn {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    border: 1px solid #D0D3D4;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 13px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    cursor: pointer;
+}
+
+.more-btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+/* 모집해요 */
+
+.board-container {
+    width: 100%;
+    height: 500px;
+    background-color: #F4F6F7;
+}
+
+.board-title {
+    width: 100%;
+    padding: 20px 150px;
+}
+
+.board-title p {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.board-tag {
+    width: 100%;
+    padding: 0px 150px;
+}
+
+.board-tag span {
+    /* border: 1px solid #D0D3D4; */
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: black;
+    cursor: pointer;
+}
+
+.board-tag span:hover {
+    border: none;
+    background-color: #F8C471;
+    color: white;
+}
+
+.board-tag span:not(:last-child) {
+    margin-right: 10px;
+}
+/* 반응형 미디어 쿼리 */
 @media screen and (max-width : 1200px) {
-    
+    .index-user-time {
+        width: 800px;
+    }
+
+    .index-user-content {
+        width: 800px;
+        margin-top: 50px;
+    }
+
+    .index-container {
+        height: 800px;
+        flex-direction: column;
+    }
+
     .tab-list {
         margin-right: 0;
         text-align: center;
@@ -247,23 +351,29 @@ div {
     .sort-list li {
         margin-right: 50px;
     }
-    
+
+    .section-title p {
+        font-size: 24px;
+        font-weight: 500;
+    }
+
     .section-title {
         justify-content: flex-start;
     }
 
-    .room-box {
+    /* .room-box {
         flex-basis: 49%;
-    }
+    } */
 
-    .room-content > div {
+    /* .room-content > div {
         width: 30%;
         float: left;
-    }
+    } */
 }
 
 
 @media screen and (max-width : 768px) {
+
     .index-user-time {
         width: 600px;
     }
@@ -273,19 +383,27 @@ div {
         margin-top: 50px;
     }
 
-    .index-container {
-        height: 800px;
-        flex-direction: column;
-    }
-    
     .tab-list li,
     .sort-list li {
         margin-right: 30px;
     }
 
-    .room-content > div {
+    .section-title p {
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    .line-text {
+        display: block;
+    }
+
+    /* .room-box {
+        flex-basis: 100%;
+    } */
+
+    /* .room-content > div {
         width: 50%;
         float: left;
-    }
+    } */
 
 }
