@@ -1,0 +1,291 @@
+/* font-family: 'Lily Script One', cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap');
+
+/* font-family: 'Noto Sans KR', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.all-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.top-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    border-bottom: 1px solid #D7DBDD;
+}
+
+.top {
+    align-items: center;
+}
+
+/* 로고 */
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-box {
+    width: 40px;
+    height: 40px;
+    background-color: #F4D03F;
+    border-radius: 15px;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Lily Script One', cursive;
+    margin-right: 20px;
+}
+
+.logo-title {
+    font-family: 'Lily Script One', cursive;
+    font-size: 20px;
+}
+
+.logo-dot {
+    color: #F4D03F;
+    color: 48px;
+}
+
+/* 상단 유저 메뉴 */
+.top-menu {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+/* 상단 유저 정보 */
+
+.index-container {
+    width: 100%;
+    height: 400px;
+    padding: 20px 150px;
+    background-color: #FBFCFC;
+    /* background-color: #B2BABB; */
+    display: flex;
+    /* flex-grow: 0;
+    flex-wrap: wrap; */
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: 0.3s;
+}
+
+.index-user-time {
+    width: 400px;
+    padding: 0;
+    text-align: center;
+}
+
+.index-user-time > p,
+.index-user-content > p {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.study-join-btn {
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    background-color: #F4D03F;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+
+.user-study-time {
+    height: 300px;
+    background-color: #F4F6F7;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 14px;
+}
+
+.index-user-content {
+    width: 800px;
+    padding: 0;
+    text-align: center;
+}
+
+
+.user-info {
+    height: 300px;
+    background-color: #FEF9E7;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 섹션 타이틀 */
+.section-title {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 탭 메뉴 */
+
+.tab-container {
+    width: 100%;
+    height: 60px;
+    border-top: 1px solid #ECF0F1;
+    border-bottom: 1px solid #ECF0F1;
+    font-size: 14px;
+    /* background-color: #FBFCFC; */
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    line-height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tab-menu {
+    width: 100%;
+}
+
+.tab-list {
+    margin-left: 150px;
+    text-align: left;
+    padding-left: 0;
+}
+
+.tab-list li,
+.sort-list li {
+    display: inline-block;
+    /* float: left; */
+    margin-right: 100px;
+    transition: 0.1s;
+}
+
+.tab-list li:hover {
+    color: #F5B041;
+}
+
+.select-sort {
+    width: 150px;
+    /* height: 30px; */
+    /* border: 1px solid #D0D3D4; */
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+}
+
+/* 스터디 공간 */
+
+.room-container {
+    width: 100%;
+    padding: 20px 150px;
+    /* display: flex;
+    justify-content: space-between; */
+    gap: 1em;
+}
+
+.room-content > div {
+    width: 16%;
+    float: left;
+}
+
+.room-box {
+    height: 300px;
+    border: 1px solid #F2F3F4;
+    border-radius: 5px;
+}
+
+.room-img {
+    width: 100%;
+    height: 180px;
+    background-image: url('/img/raccoon.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.room-info {
+    width: 100%;
+    height: 120px;
+    padding: 20px;
+    text-align: center;
+}
+
+.room-info p {
+    font-weight: 500;
+}
+
+.room-tag {
+    color: #7B7D7D;
+    font-size: 13px;
+    margin: 0px 5px 0px 5px;
+}
+
+@media screen and (max-width : 1200px) {
+    
+    .tab-list {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .tab-list li,
+    .sort-list li {
+        margin-right: 50px;
+    }
+    
+    .section-title {
+        justify-content: flex-start;
+    }
+
+    .room-box {
+        flex-basis: 49%;
+    }
+
+    .room-content > div {
+        width: 30%;
+        float: left;
+    }
+}
+
+
+@media screen and (max-width : 768px) {
+    .index-user-time {
+        width: 600px;
+    }
+
+    .index-user-content {
+        width: 600px;
+        margin-top: 50px;
+    }
+
+    .index-container {
+        height: 800px;
+        flex-direction: column;
+    }
+    
+    .tab-list li,
+    .sort-list li {
+        margin-right: 30px;
+    }
+
+    .room-content > div {
+        width: 50%;
+        float: left;
+    }
+
+}
