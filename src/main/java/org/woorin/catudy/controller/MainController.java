@@ -23,4 +23,16 @@ public class MainController {
         System.out.println("HELLO SHOW");
         return "show/show";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        System.out.println("HELLO SHOW");
+        return "user/login";
+    }
+
+    @GetMapping("/join")
+    public String join() {
+        System.out.println("HELLO JOIN");
+        return "user/join";
+    }
 }
