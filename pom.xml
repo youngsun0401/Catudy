@@ -71,12 +71,6 @@
 			<optional>true</optional>
 			<version>2.7.2</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-websocket</artifactId>
-			<version>5.3.22</version>
-		</dependency>
 	</dependencies>
 
 	<build>
