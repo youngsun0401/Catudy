@@ -67,19 +67,19 @@
 <select id="member_select" resultMap="member">
 	SELECT member_no, member_id, member_pw, member_nick, member_comment, member_regdate FROM memberTBL;
 </select>
-
+<!--회원가입-->
 <insert id="member_insert">
 	INSERT INTO memberTBL (member_id, member_pw, member_nick, member_comment)
 	VALUES(#{member_id}, #{member_pw}, #{member_nick}, #{member_comment})
 </insert>
 
 <update id="member_update">
-	UPDATE memberTBL SET member_id=#{member_id}, member_pw=#{member_pw}, member_comment=#{member_comment} 
+	UPDATE memberTBL SET member_id=#{member_id}, member_pw=#{member_pw}, member_comment=#{member_comment}
 	WHERE member_no=#{member_no};
 </update>
 
 <delete id="member_delete">
-	DELETE FROM memberTBL 
+	DELETE FROM memberTBL
 	WHERE member_no=#{member_no}
 </delete>
 
