@@ -1,7 +1,5 @@
 package org.woorin.catudy.mapper;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
 import org.woorin.catudy.model.CommentDTO;
 import org.woorin.catudy.model.DocumentDTO;
@@ -9,17 +7,22 @@ import org.woorin.catudy.model.MemberDTO;
 import org.woorin.catudy.model.PostDTO;
 import org.woorin.catudy.model.RoomDTO;
 
+import java.util.List;
+
 @Mapper
 public interface MainMapper {
 
 	String testSelect(int p_id);
-
-	public MemberDTO member_select(Integer member_no);
+	// 회원가입
 	public void member_insert(MemberDTO dto);
-	public void member_update(MemberDTO dto);
-	public void member_delete(Integer member_no);
+	// 로그인
+	void member_login(MemberDTO dto);
+	public void member_delete(int member_no);
 
-//	public RoomDTO room_select(Integer room_no);
+
+	public RoomDTO room_select(int room_no);
+	public List<RoomDTO> room_select_orderbyNo(int offset, int limit);
+	public List<RoomDTO> room_select_orderbyNo_onlyOpen(int offset, int limit);
 //	public void room_insert(RoomDTO dto);
 //	public void room_update(RoomDTO dto);
 //	public void room_delete(Integer room_no);
@@ -34,6 +37,7 @@ public interface MainMapper {
 	public void post_update(PostDTO dto);
 	public void post_delete(Integer post_no);
 	public List<CommentDTO> comments_on_post(Integer post_no);// 게시글의 댓글 목록
+
 
 
 }
