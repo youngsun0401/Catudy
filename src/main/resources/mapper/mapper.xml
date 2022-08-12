@@ -87,11 +87,24 @@
 
 
 
-<!-- <select id="room_select" resultMap="room">
-	SELECT room_no, room_title, room_category, room_ruler, room_introduce, room_rule, room_regdate, room_open FROM roomTBL;
+<select id="room_select" resultMap="room">
+	SELECT * FROM roomTBL WHERE room_no=#{room_no};
 </select>
 
-<insert id="room_insert">
+<select id="room_select_orderbyNo" resultMap="room">
+	SELECT * FROM roomTBL 
+	ORDER BY room_no DESC 
+	LIMIT #{limit} OFFSET #{offset};
+</select>
+
+<select id="room_select_orderbyNo_onlyOpen" resultMap="room">
+	SELECT * FROM roomTBL
+	WHERE room_open = true 
+	ORDER BY room_no DESC 
+	LIMIT #{limit} OFFSET #{offset};
+</select>
+
+<!-- <insert id="room_insert">
 	INSERT INTO roomTBL (room_title, room_category, room_ruler, room_introduce, room_rule, room_open) 
 	VALUES('', '', 0, '', '', 1);
 </insert>

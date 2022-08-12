@@ -1,12 +1,13 @@
 package org.woorin.catudy.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.woorin.catudy.model.CommentDTO;
 import org.woorin.catudy.model.DocumentDTO;
 import org.woorin.catudy.model.MemberDTO;
 import org.woorin.catudy.model.PostDTO;
-
-import java.util.List;
+import org.woorin.catudy.model.RoomDTO;
 
 @Mapper
 public interface MainMapper {
@@ -16,9 +17,12 @@ public interface MainMapper {
 	public void member_insert(MemberDTO dto);
 	// 로그인
 	void member_login(MemberDTO dto);
+	public void member_delete(int member_no);
 
 
-//	public RoomDTO room_select(Integer room_no);
+	public RoomDTO room_select(int room_no);
+	public List<RoomDTO> room_select_orderbyNo(int offset, int limit);
+	public List<RoomDTO> room_select_orderbyNo_onlyOpen(int offset, int limit);
 //	public void room_insert(RoomDTO dto);
 //	public void room_update(RoomDTO dto);
 //	public void room_delete(Integer room_no);
