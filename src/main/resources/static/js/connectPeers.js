@@ -9,9 +9,9 @@ const myVideo = document.createElement('video')
 myVideo.style.width = '200px';
 myVideo.style.height = '100%';
 
-const roo_name = document.getElementById('room_name').value;
+const room_name = document.getElementById('room_name').value;
 
-const socket = io('https://192.168.0.5:3000', {
+const socket = io('https://192.168.0.36:3000', {
     transports: ['websocket']
 })
 const myPeer = new Peer({
@@ -37,7 +37,7 @@ navigator.mediaDevices.getUserMedia({
         video.style.width = '200px';
         // video.style.height = '100%';
 
-        // 다른사람의 스트림(영상, 소리)를 받아옵니다.
+        // 접속 시 다른사람의 스트림(영상, 소리)를 받아옵니다.
         call.on('stream', async(receivedStream) => {
             console.log('receivedStream', showingsCount)
             addVideoStream(video, receivedStream, showings[showingsCount++])
@@ -59,8 +59,8 @@ socket.on('user-disconnected', async userId => {
 
 // peer start.
 myPeer.on('open', id => {
-    console.log('join-room', roo_name, id)
-    socket.emit('join-room', roo_name, id)
+    console.log(`${room_name}방 참가중`, id)
+    socket.emit('join-room', room_name, id)
 })
 
 myVideo.muted = true
@@ -72,14 +72,14 @@ const peers = {}
 async function connectToNewUser(userId, stream) {
     console.log('connectToNewUser', userId)
     const call = await myPeer.call(userId, stream)
-    console.log('call..')
+    console.log('새로운 참가자 들어오는중..')
 
     const video = document.createElement('video')
     video.style.width = '100%';
     video.style.height = '100%';
 
     call.on('stream', async(userVideoStream) => {
-        console.log('connectedUserStream', showingsCount)
+        console.log('참가자 스트림 받는중/ ', showingsCount, '번에 배치됨.')
         addVideoStream(video, userVideoStream, showings[showingsCount++])
     })
     call.on('close', () => {
