@@ -24,12 +24,11 @@
 </head>
 
 <body>
+    <!-- id="room_name"에 방 이름을 적어놓으면 자동으로 해당 방에 들어가거나 생성(+입장)함 -->
     <div id="room_info">
-        <input type="text" id="room_name" value="1" />
+        <input type="hidden" id="room_name" value="1" />
         <!-- <input type="text" id="name" value="test_user" /> -->
-        <button id="room_name_btn">Enter room</button>
     </div>
-    
 
     <div class="container-fluid">
         <div class="leftBar">
@@ -50,7 +49,6 @@
                     <div class="cam1">
                         <div class="showing">
                             <div class="camTime">누적시간</div>
-                            <!-- <div id="video-grid" style="width:100%; height:100%;"></div> -->
                         </div>
                         <div class="showing">
                             <div class="camTime">누적시간</div>
@@ -81,8 +79,6 @@
             </div>
         </div>
     </div>
-
-
 
     <!--js링크-->
     <script src="/js/show.js"></script>
