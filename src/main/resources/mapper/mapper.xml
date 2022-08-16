@@ -83,6 +83,16 @@
 	WHERE member_no=#{member_no}
 </delete>
 
+	<!-- 회원 로그인 -->
+	<select id="memberRealPassword" resultType="String">
+		Select member_pw from memberTBL where member_id = #{member_id}
+	</select>
+
+	<!-- 회원 로그인 1 -->
+	<select id="memberOneSelect" resultType="org.woorin.catudy.model.MemberDTO">
+		Select * from memberTBL where member_id = #{member_id}
+	</select>
+
 
 
 

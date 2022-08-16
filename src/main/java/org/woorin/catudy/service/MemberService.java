@@ -10,6 +10,9 @@ public interface MemberService {
 	public void member_delete(Integer member_no);
 	// 회원 로그인
 	MemberDTO member_login(MemberDTO dto);
+
+
+
 	// 회원정보 수정인
 	// 
 	// 

@@ -1,13 +1,9 @@
 package org.woorin.catudy.mapper;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
-import org.woorin.catudy.model.CommentDTO;
-import org.woorin.catudy.model.DocumentDTO;
-import org.woorin.catudy.model.MemberDTO;
-import org.woorin.catudy.model.PostDTO;
-import org.woorin.catudy.model.RoomDTO;
+import org.woorin.catudy.model.*;
+
+import java.util.List;
 
 @Mapper
 public interface MainMapper {
@@ -15,9 +11,14 @@ public interface MainMapper {
 	String testSelect(int p_id);
 	// 회원가입
 	public void member_insert(MemberDTO dto);
-	// 로그인
-	void member_login(MemberDTO dto);
+	// member 정보 1개 가져오기
+	MemberDTO memberOneSelect(String member_id);
+	// 로그인 비밀번호 매치
+	String memberRealPassword(String member_id);
+
 	public void member_delete(int member_no);
+
+
 
 
 	public RoomDTO room_select(int room_no);
