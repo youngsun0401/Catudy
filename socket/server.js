@@ -5,9 +5,18 @@ const express = require("express");
 
 const app = express();
 
+// const httpServer = createServer({
+//   key: readFileSync("key.pem"),
+//   cert: readFileSync("cert.pem")
+// }, app);
+
+// 인증키 생성 아래 링크 참조
+// https://letsencrypt.org/docs/certificates-for-localhost/
+// openssl req -x509 -out localhost.crt -keyout localhost.key -newkey rsa:2048 -nodes -sha256 -subj '/CN=localhost' -extensions EXT -config <( \printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+
 const httpServer = createServer({
-  key: readFileSync("key.pem"),
-  cert: readFileSync("cert.pem")
+    key: readFileSync("localhost.key"),
+    cert: readFileSync("localhost.crt")
 }, app);
 
 const io = new Server(httpServer, { /* options */ });
