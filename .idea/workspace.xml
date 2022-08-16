@@ -5,18 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="318e2dc4-b2ab-4341-a217-b1060036a74c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/controller/MemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__nz_net_ultraq_extensions_groovy_extensions_0_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__nz_net_ultraq_thymeleaf_thymeleaf_expression_processor_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__nz_net_ultraq_thymeleaf_thymeleaf_layout_dialect_2_5_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ognl_ognl_3_1_26.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_3_0_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catudy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/catudy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/mapper/MainMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/mapper/MainMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/service/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/service/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/service/MemberServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/mapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/show/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/show/show.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/join.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/member/join.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/member/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +83,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/cheone_0/문서/GitHub/catudy/src/main/resources/static/js",
+    "last_opened_file_path": "/home/cheone_0/문서/GitHub/catudy",
     "project.structure.last.edited": "라이브러리",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -133,6 +130,7 @@
       <workItem from="1660206447765" duration="917000" />
       <workItem from="1660263054969" duration="10000" />
       <workItem from="1660263130946" duration="10720000" />
+      <workItem from="1660630004944" duration="297000" />
     </task>
     <servers />
   </component>

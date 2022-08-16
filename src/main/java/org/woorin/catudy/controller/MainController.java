@@ -18,20 +18,10 @@ public class MainController {
         return "show/show";
     }
 
-
-<<<<<<< HEAD
-    @GetMapping("/join")
-    public String join() {
-        System.out.println("HELLO JOIN");
-        return "user/join";
-    }
-
     @GetMapping("/recruit")
     public String recruit() {
 		System.out.println("HELLO");
         return "board/recruit";
     }
 
-=======
->>>>>>> 99668939e9f456dc3b650b20559629bb4c7bc290
 }
