@@ -35,4 +35,11 @@ public class MainController {
         System.out.println("HELLO JOIN");
         return "user/join";
     }
+
+    @GetMapping("/recruit")
+    public String recruit() {
+		System.out.println("HELLO");
+        return "board/recruit";
+    }
+
 }

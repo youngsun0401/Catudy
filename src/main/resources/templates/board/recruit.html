@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Stylesheet (index.html's css file)-->
+    <link rel="stylesheet" href="/css/index.css">
+    <!-- Stylesheet (recruit.html's css file)-->
+    <link rel="stylesheet" href="/css/recruit.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- head include file -->
+    <div th:replace="/fragment/head.html :: headerFragment"></div>
+</head>
+
+<body>
+    <!-- content field start -->
+
+    <!-- 전체 박스 -->
+    <div class="wrapper">
+        <!-- 페이지 타이틀 및 검색 기능 -->
+        <div class="recruit-container">
+            <div class="recruit-top-container">
+                <p class="recruit-top-title">캐터디 모집</p>
+            </div>
+            <div class="recruit-top-input">
+                <p>함께 공부할 캐터디원들을 찾아보세요! &#128591;</p>
+
+                <div class="recruit-top-form">
+                    <div>
+                        <input type="search" class="recruit-search-input" placeholder="관심있는 캐터디를 검색해보세요.">
+                    </div>
+                    <div>
+                        <button class="recruit-search-btn">검색</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- 페이지 타이틀 및 검색 기능 끝 -->
+
+        <!-- 게시글 목록 -->
+        <div class="recruit-list-container">
+            <div class="recruit-list-menu">
+                <span>전체</span>
+                <span>모집중</span>
+                <span>모집 완료</span>
+            </div>
+            <!-- <div class="middle-line"></div> -->
+            <div>
+                <div class="recruit-list-sort">
+                    <span>최신순</span>
+                    <span>댓글순</span>
+                </div>
+            </div>
+            <div class="recruit-list">
+                <div class="recruit-list-box">
+                    <div class="recruit-content">
+                        <div class="recruit-badge-state">
+                            <p>모집중</p>
+                        </div>
+                        <div class="recruit-main-title">
+                            <div class="recruit-main-subject"> 같이 토익 900점 찍을 사람 구함</div>
+                            <div class="recruit-main-date">220901 ~ 221201</div>
+                        </div>
+                        <div class="recruit-summary-content">
+                            아침 9시부터 오후 9시까지 어쩌구 저쩌구 웅앵웅 공부 열심히 어쩌구 저쩌구 블라블라 어디까지 글을 나오게 하고 잘라야할지 길게 써서 확인해봐야지 아 배고파
+                            진짜 죽을 것 같다 집에 보내줘 한 세 줄 정도는 더 나와도 될 것 같네 하하하하하하하하하하하 어디까지 써야돼 블라블라 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nostrum repudiandae quasi repellat nulla delectus exercitationem ex optio voluptatem! Non similique, delectus id vitae eligendi quasi eaque sint maxime vel.
+                        </div>
+                        <div class="recruit-post-writer">
+                            <div>
+                                <p>아이스크림사줘</p>
+                            </div>
+                            <div>
+                                <span>댓글 (1)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="recruit-list-box">
+                    <div class="recruit-content">
+                        <div class="recruit-badge-state">
+                            <p>모집중</p>
+                        </div>
+                        <div class="recruit-main-title">
+                            <div class="recruit-main-subject"> 같이 토익 900점 찍을 사람 구함</div>
+                            <div class="recruit-main-date">220901 ~ 221201</div>
+                        </div>
+                        <div class="recruit-summary-content">
+                            아침 9시부터 오후 9시까지 어쩌구 저쩌구 웅앵웅 공부 열심히 어쩌구 저쩌구 블라블라 어디까지 글을 나오게 하고 잘라야할지 길게 써서 확인해봐야지 아 배고파
+                            진짜 죽을 것 같다 집에 보내줘 한 세 줄 정도는 더 나와도 될 것 같네 하하하하하하하하하하하 어디까지 써야돼 블라블라 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nostrum repudiandae quasi repellat nulla delectus exercitationem ex optio voluptatem! Non similique, delectus id vitae eligendi quasi eaque sint maxime vel.
+                        </div>
+                        <div class="recruit-post-writer">
+                            <div>
+                                <p>아이스크림사줘</p>
+                            </div>
+                            <div>
+                                <span>댓글 (1)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="recruit-list-box">
+                    <div class="recruit-content">
+                        <div class="recruit-badge-state finish">
+                            <p>모집 완료</p>
+                        </div>
+                        <div class="recruit-main-title">
+                            <div class="recruit-main-subject"> 같이 토익 900점 찍을 사람 구함</div>
+                            <div class="recruit-main-date">220901 ~ 221201</div>
+                        </div>
+                        <div class="recruit-summary-content">
+                            아침 9시부터 오후 9시까지 어쩌구 저쩌구 웅앵웅 공부 열심히 어쩌구 저쩌구 블라블라 어디까지 글을 나오게 하고 잘라야할지 길게 써서 확인해봐야지 아 배고파
+                            진짜 죽을 것 같다 집에 보내줘 한 세 줄 정도는 더 나와도 될 것 같네 하하하하하하하하하하하 어디까지 써야돼 블라블라 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nostrum repudiandae quasi repellat nulla delectus exercitationem ex optio voluptatem! Non similique, delectus id vitae eligendi quasi eaque sint maxime vel.
+                        </div>
+                        <div class="recruit-post-writer">
+                            <div>
+                                <p>아이스크림사줘</p>
+                            </div>
+                            <div>
+                                <span>댓글 (1)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- 게시글 목록 끝 -->
+        </div>
+
+    </div>
+    <!-- 전체 박스 끝 -->
+
+
+
+
+    <!-- content field end -->
+
+
+    <!-- foot include file -->
+    <div th:replace="/fragment/foot.html :: footerFragment"></div>
+</body>
+
+</html>

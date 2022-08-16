@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!-- 타임리프 기본 레이아웃 페이지 (삭제하지 마세요!)-->
+<!-- 타임리프 기본 레이아웃 페이지 (삭제하지 마세요!)-->
+<!-- 타임리프 기본 레이아웃 페이지 (삭제하지 마세요!)-->
+<!-- 타임리프 기본 레이아웃 페이지 (삭제하지 마세요!)-->
+<!-- 타임리프 기본 레이아웃 페이지 (삭제하지 마세요!)-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- content script -->
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/index.css}">
+    </th:block>
+    <!-- content script -->
+    <th:block layout:fragment="script">
+        <script th:src="@{/js/home.js}"></script>
+    </th:block>
+</head>
+
+<body>
+    <!-- header fragment 사용 -->
+    <th:block th:replace="fragment/header :: headerFragment"></th:block>
+    <!-- content fragment 사용 -->
+    <th:block layout:fragment="content">
+        
+    </th:block>
+    <!-- footer fragment 사용 -->
+    <th:block th:replace="fragment/footer :: footerFragment"></th:block>
+</body>
+
+</html>

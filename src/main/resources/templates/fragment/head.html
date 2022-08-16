@@ -1,0 +1,32 @@
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org">
+<!--headerFragment 선언-->
+<header th:fragment="headerFragment">
+    <!-- 상단 로고 / 로그인 / 회원가입 -->
+    <div class="top-container">
+        <div class="row top">
+            <div class="col-1"></div>
+            <div class="col-1 logo">
+                <div class="logo-box">
+                    <span>ct</span>
+                </div>
+                <div class="logo-title">
+                    <span onclick="location.href='/'">Catudy</span><span class="logo-dot">.</span>
+
+                </div>
+            </div>
+            <div class="col-1 top-menu">
+                <div>Home</div>
+                <div onclick="location.href='/recruit'">모집</div>
+            </div>
+            <div class="col-7"></div>
+            <div class="col-1 top-user-menu">
+                <div class="top-btn" onclick="location.href='/join'">회원가입</div>
+                <div class="top-btn" onclick="location.href='/login'">로그인</div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+    <!-- 상단 로고 / 로그인 / 회원가입 끝 -->
+</header>
+
+</html>
