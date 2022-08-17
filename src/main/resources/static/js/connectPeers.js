@@ -15,6 +15,7 @@ const socket = io('wss://192.168.10.97:3000', {
     transports: ['websocket']
 })
 var tagTest;
+
 navigator.mediaDevices.getUserMedia({
     video: true,
     audio: true
@@ -68,7 +69,7 @@ navigator.mediaDevices.getUserMedia({
 
     // 들어온 사람과 통신을 시도합니다.
     socket.on('user-connected', async userId => {
-        console.log('userConnected', userId)
+        console.log('새로운 참가자 연결됨', userId)
         const call = await myPeer.call(userId, stream, { metadata: { userId: peers.id } })
         console.log('새로운 참가자 들어오는중..')
         // console.log(call.peer)
