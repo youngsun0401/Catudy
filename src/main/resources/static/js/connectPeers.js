@@ -53,8 +53,8 @@ navigator.mediaDevices.getUserMedia({
             // 처음보는 스트림(사용자의 영상)이라면
             if (streamIdList.indexOf(receivedStream.id) == -1) {
                 streamIdList.push(receivedStream.id)
-                // await addVideoStream(video.cloneNode(), receivedStream, showings[showingsCount++])
-                await addVideoStream(video, receivedStream, testgrid)
+                await addVideoStream(video.cloneNode(), receivedStream, showings[showingsCount++])
+                // await addVideoStream(video, receivedStream, testgrid)
             }
         })
     })
@@ -64,7 +64,7 @@ navigator.mediaDevices.getUserMedia({
         console.log('userConnected', userId)
         const call = await myPeer.call(userId, stream, {metadata:{userId: peers.id}})
         console.log('새로운 참가자 들어오는중..')
-        console.log(call.peer)
+        // console.log(call.peer)
         const video = document.createElement('video')
         video.style.width = '200px';
         video.style.height = '200px';
@@ -74,8 +74,8 @@ navigator.mediaDevices.getUserMedia({
             if (streamIdList.indexOf(userVideoStream.id) == -1) {   // 처음보는 스트림(사용자의 영상)이라면
                 console.log('참가자 스트림 받는중/', showingsCount, '번에 배치됨.')
                 streamIdList.push(userVideoStream.id)
-                // await addVideoStream(video.cloneNode(), userVideoStream, showings[showingsCount++])
-                await addVideoStream(video, userVideoStream, testgrid)
+                await addVideoStream(video.cloneNode(), userVideoStream, showings[showingsCount++])
+                // await addVideoStream(video, userVideoStream, testgrid)
             } else {
                 console.log('streamIdList에 추가되지않은 스트림', userVideoStream)
             }
