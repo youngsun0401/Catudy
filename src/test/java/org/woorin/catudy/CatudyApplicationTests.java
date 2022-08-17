@@ -76,11 +76,32 @@ class CatudyApplicationTests {
 	
 	
 	//// 스터디방 조회
+	@Disabled
 	@Test
 	void getRoom() {
 		System.out.println("AAAAAAAAAAAAAAAAA");
 		List<RoomDTO> list = roomService.getRooms_latest(1, 5, true);
 		for( RoomDTO dto: list ) {
+			System.out.println(dto);
+		}
+		System.out.println("QQQQQQQQQQQQQQQQQQQQQQQQ");
+	}
+	
+	//// 특정 카테고리 게시글 목록 조회
+	@Test
+	void getPosts() {
+		System.out.println("AAAAAAAAAAAAAAAAAgetPosts");
+		List<PostDTO> list = postService.get_posts("all", 1);
+		for( PostDTO dto: list ) {
+			System.out.println(dto);
+		}
+		System.out.println("QQQQQQQQQQQQQQQQQQQQQQQQ");
+	}
+	@Test
+	void getPosts2() {
+		System.out.println("AAAAAAAAAAAAAAAAAgetPosts2");
+		List<PostDTO> list = postService.get_posts("rec", 1);
+		for( PostDTO dto: list ) {
 			System.out.println(dto);
 		}
 		System.out.println("QQQQQQQQQQQQQQQQQQQQQQQQ");

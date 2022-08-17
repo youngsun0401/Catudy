@@ -166,6 +166,23 @@
 	WHERE post_no=#{post_no}
 </select>
 
+<select id="post_select_orderbyNo_all" resultMap="post">
+	SELECT p.*, m.member_nick from postTBL p 
+	JOIN memberTBL m
+	on p.post_writer = m.member_no
+	ORDER BY post_no DESC
+	LIMIT #{limit} OFFSET #{offset}
+</select>
+
+<select id="post_select_orderbyNo_category" resultMap="post">
+	SELECT p.*, m.member_nick from postTBL p 
+	JOIN memberTBL m
+	on p.post_writer = m.member_no
+	WHERE post_category = #{category}
+	ORDER BY post_no DESC
+	LIMIT #{limit} OFFSET #{offset}
+</select>
+
 <insert id="post_insert">
 	INSERT INTO postTBL (post_title, post_category, post_content, post_writer) 
 	VALUES('', '', '', 0)
