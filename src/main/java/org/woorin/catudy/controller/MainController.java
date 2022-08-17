@@ -18,10 +18,5 @@ public class MainController {
         return "show/show";
     }
 
-    @GetMapping("/recruit")
-    public String recruit() {
-		System.out.println("HELLO");
-        return "board/recruit";
-    }
 
 }

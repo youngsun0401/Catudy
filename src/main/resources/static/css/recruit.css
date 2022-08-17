@@ -110,7 +110,7 @@ a, p, span, button, input {
 
 .recruit-list-menu {
     width: 100%;
-    border-bottom: 1px solid red;
+    /* border-bottom: 1px solid red; */
     font-size: 15px;
     margin: 20px 0px 40px 0px;
 }
@@ -121,13 +121,33 @@ a, p, span, button, input {
 }
 
 .recruit-list-sort {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 13px;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.recruit-list-sort span:hover {
+    color: #424949;
+    font-weight: 500;
+}
+
+.write-btn {
+    width: 100px;
+    height: 30px;
+    font-size: 12px;
+    border-radius: 5px;
+    background-color: #424949;
+    color: white;
 }
 
 .recruit-list {
     width: 100%;
     /* border: 1px solid red; */
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .recruit-list-box {
@@ -140,6 +160,7 @@ a, p, span, button, input {
     justify-content: space-between;
     /* border-bottom: none; */
     transition: 0.1s;
+    cursor: pointer;
 }
 
 .recruit-list-box:hover {
@@ -165,12 +186,19 @@ a, p, span, button, input {
 }
 
 .recruit-badge-state {
+    width: 100%;
+    font-size: 13px;
+    color: lightgray;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.recruit-badge {
     width: 55px;
     height: 20px;
     background-color: #F4D03F;
-    font-size: 13px;
     color: white;
-    text-align: center;
 }
 
 .finish {
@@ -190,7 +218,7 @@ a, p, span, button, input {
 
 .recruit-main-date {
     font-size: 14px;
-    color: #F1948A;
+    color: #B2BABB;
     letter-spacing: 1px;
 }
 
@@ -212,7 +240,8 @@ a, p, span, button, input {
 .recruit-post-writer {
     display: flex;
     justify-content: space-between;
-    color: lightgray;
+    color: #7B7D7D;
     font-size: 14px;
 }
+
 
