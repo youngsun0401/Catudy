@@ -1,3 +1,9 @@
+/*
+이 파일의 코드는 socket.io 기반으로 쓰여졌습니다.
+이 파일은 더이상 쓸 파일이 아닙니다.
+사용할 일은 없지만 참고할 수도 있기때문에 남겨둡니다.
+*/
+
 // const socket = io('wss://localhost:8000', { transports : ['websocket'] });
 const socket = io('wss://192.168.10.97:8000', { transports : ['websocket'] });
 
