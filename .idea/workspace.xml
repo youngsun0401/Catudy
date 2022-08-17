@@ -5,22 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="318e2dc4-b2ab-4341-a217-b1060036a74c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/join.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/join.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/join.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_5_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/config/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catudy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/catudy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/mapper/MainMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/mapper/MainMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/service/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/woorin/catudy/service/MemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragment/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragment/head.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/member/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/member/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -30,6 +46,7 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
@@ -72,9 +89,19 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/cheone_0/문서/GitHub/catudy/src/main/resources/static/js",
+    "last_opened_file_path": "/home/cheone_0/문서/GitHub/catudy",
+    "project.structure.last.edited": "라이브러리",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "SQL Dialects",
     "spring.configuration.checksum": "242cd8f59e350e275b1ddd23dac7b6c2"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -108,6 +135,10 @@
       <workItem from="1660187549442" duration="907000" />
       <workItem from="1660188661204" duration="1848000" />
       <workItem from="1660197333849" duration="6956000" />
+      <workItem from="1660206447765" duration="917000" />
+      <workItem from="1660263054969" duration="10000" />
+      <workItem from="1660263130946" duration="10720000" />
+      <workItem from="1660630004944" duration="14443000" />
     </task>
     <servers />
   </component>
@@ -124,5 +155,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

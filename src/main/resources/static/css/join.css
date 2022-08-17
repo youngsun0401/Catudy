@@ -4,69 +4,6 @@
 /* font-family: 'Noto Sans KR', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
-body {
-    margin: 0;
-    padding: 0;
-}
-
-div {
-    box-sizing: border-box;
-}
-
-.all-container {
-    width: 100%;
-    margin: 0 auto;
-}
-
-.top-container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 15px;
-    border-bottom: 1px solid #D7DBDD;
-}
-
-.top {
-    align-items: center;
-}
-
-/* 로고 */
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo-box {
-    width: 40px;
-    height: 40px;
-    background-color: #F4D03F;
-    border-radius: 15px;
-    color: white;
-    line-height: 40px;
-    text-align: center;
-    font-size: 24px;
-    font-family: 'Lily Script One', cursive;
-    margin-right: 20px;
-}
-
-.logo-title {
-    font-family: 'Lily Script One', cursive;
-    font-size: 20px;
-}
-
-.logo-dot {
-    color: #F4D03F;
-    color: 48px;
-}
-
-/* 상단 유저 메뉴 */
-.top-menu {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-}
-
-
 /* login 폼 */
 
 .centerForm{
@@ -75,6 +12,7 @@ div {
     margin-right: auto;
     width: 400px;
     margin-top: 100px;
+    padding-bottom: 250px;
 }
 
 /* input */

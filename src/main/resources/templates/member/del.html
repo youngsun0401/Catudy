@@ -42,27 +42,34 @@
 
   <!-- 로그인폼 -->
   <div class="centerForm">
-    <form action="userInsert" method="post" id="joinInsertFrom" name="joinInsertFrom" autocomplete="off">
+    <form action="member_insert" method="POST" id="memberInsertFrom" autocomplete="off">
       <h1 class="marginBot">회원가입</h1>
       <!-- 아이디 -->
       <div class="form-group">
-        <label for="inputID" class="fontDesign">아이디</label>
+        <label for="member_id" class="fontDesign">아이디</label>
         <div class="">
-          <input type="text" class="inputDesign marginBot" id="inputID" placeholder="ID">
+          <input type="text" class="inputDesign marginBot" id="member_id" name="member_id" placeholder="ID">
         </div>
       </div>
       <!-- 비밀번호 -->
       <div class="form-group">
-        <label for="inputPassword" class="fontDesign">비밀번호</label>
+        <label for="member_pw" class="fontDesign">비밀번호</label>
         <div class="">
-          <input type="password" class="inputDesign marginBot" id="inputPassword" placeholder="Password">
+          <input type="password" class="inputDesign marginBot" id="member_pw" name="member_pw" placeholder="Password">
         </div>
       </div>
       <!-- 닉네임 -->
       <div class="form-group">
-        <label for="inputNick" class="fontDesign">닉네임</label>
+        <label for="member_nick" class="fontDesign">닉네임</label>
         <div class="">
-          <input type="text" class="inputDesign marginBot" id="inputNick" placeholder="Password">
+          <input type="text" class="inputDesign marginBot" id="member_nick" name="member_nick" placeholder="Password">
+        </div>
+      </div>
+      <!-- 각오 -->
+      <div class="form-group">
+        <label for="member_comment" class="fontDesign">각오</label>
+        <div class="">
+          <input type="text" class="inputDesign marginBot" id="member_comment" name="member_comment" placeholder="각오 한 마디를 적어주세요!">
         </div>
       </div>
       <!-- 로그인 가입하기 버튼 -->
