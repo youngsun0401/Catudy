@@ -41,9 +41,7 @@ public class PostServiceImpl implements PostService {
 	// 게시글 등록
 	@Override
 	public void post_insert(PostDTO dto) {
-		System.out.println("PostServiceImpl 실행 시작.");
 		mapper.post_insert(dto);
-		System.out.println("PostServiceImpl 실행 완료.");
 	}
 
 }
