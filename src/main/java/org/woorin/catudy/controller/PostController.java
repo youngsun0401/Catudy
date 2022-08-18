@@ -1,5 +1,7 @@
 package org.woorin.catudy.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,10 +31,15 @@ public class PostController {
 
     // 게시글 작성
     @PostMapping("/post_insert")
-    public String post_insert(PostDTO dto) {
-        System.out.println("작성 시작.");
+    public String post_insert(PostDTO dto, HttpSession session) {
+        dto.setPost_writer(loginId(session));// 글쓴이 = 현재 로그인한 회원
         postService.post_insert(dto);
-        System.out.println("작성 완료.");
         return "redirect:/recruit";
     }
+    
+	// 현재 로그인한 회원 번호(정수) 가져오기
+	private static int loginId( HttpSession session ) {
+		if( session.getAttribute("member_no") == null ) return 0;
+		return Integer.parseInt( session.getAttribute("member_no")+"" );
+	}
 }

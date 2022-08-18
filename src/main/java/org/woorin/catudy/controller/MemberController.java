@@ -53,6 +53,7 @@ public class MemberController {
             System.out.println("닉네임 : " + resultDTO.getMember_comment());
 
             HttpSession session = request.getSession();
+            session.setAttribute("member_no", resultDTO.getMember_no());
             session.setAttribute("member_id", resultDTO.getMember_id());
             session.setAttribute("member_nick", resultDTO.getMember_nick());
             session.setAttribute("member_comment", resultDTO.getMember_comment());

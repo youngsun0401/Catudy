@@ -49,20 +49,6 @@ class CatudyApplicationTests {
 	}
 	
 	
-	//// 게시글 조회
-	@Disabled
-	@Test
-	void post_select() {
-		System.out.println("AAAAAAAAAAAAAAAAA");
-//		PostDTO post = mapper.post_select(1);
-		PostDTO post = postService.get_post(1);
-		System.out.println(post);
-		System.out.println(post.getPost_writer());
-		System.out.println(post.getComments());
-		System.out.println("QQQQQQQQQQQQQQQQQQQQQQQQ");
-	}
-	
-	
 	//// 서랍글 조회
 	@Disabled
 	@Test
@@ -79,32 +65,44 @@ class CatudyApplicationTests {
 	@Disabled
 	@Test
 	void getRoom() {
-		System.out.println("AAAAAAAAAAAAAAAAA");
+		System.out.println("TEST ===================== getRoom");
 		List<RoomDTO> list = roomService.getRooms_latest(1, 5, true);
 		for( RoomDTO dto: list ) {
 			System.out.println(dto);
 		}
-		System.out.println("QQQQQQQQQQQQQQQQQQQQQQQQ");
+	}
+	
+	
+	//// 게시글 조회
+//	@Disabled
+	@Test
+	void post_select() {
+		System.out.println("TEST ===================== post_select");
+//		PostDTO post = mapper.post_select(1);
+		PostDTO post = postService.get_post(1);
+		System.out.println(post);
+		System.out.println(post.getPost_writer_dto());
+		System.out.println(post.getComments());
 	}
 	
 	//// 특정 카테고리 게시글 목록 조회
+	@Disabled
 	@Test
 	void getPosts() {
-		System.out.println("AAAAAAAAAAAAAAAAAgetPosts");
+		System.out.println("TEST ===================== getPosts");
 		List<PostDTO> list = postService.get_posts("all", 1);
 		for( PostDTO dto: list ) {
 			System.out.println(dto);
 		}
-		System.out.println("QQQQQQQQQQQQQQQQQQQQQQQQ");
 	}
+	@Disabled
 	@Test
 	void getPosts2() {
-		System.out.println("AAAAAAAAAAAAAAAAAgetPosts2");
+		System.out.println("TEST ===================== getPosts2");
 		List<PostDTO> list = postService.get_posts("rec", 1);
 		for( PostDTO dto: list ) {
 			System.out.println(dto);
 		}
-		System.out.println("QQQQQQQQQQQQQQQQQQQQQQQQ");
 	}
 	
 }

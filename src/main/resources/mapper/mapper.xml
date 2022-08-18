@@ -55,9 +55,10 @@
 	<result column="post_title"      property="post_title"/>
 	<result column="post_category"   property="post_category"/>
 	<result column="post_content"    property="post_content"/>
+	<result column="post_writer"     property="post_writer"/>
 	<result column="post_regdate"    property="post_regdate"/>
 	<result column="post_viewcount"  property="post_viewcount"/>
-	<collection property="post_writer" resultMap="member"/>
+	<collection property="post_writer_dto" resultMap="member"/>
 </resultMap>
 
 
