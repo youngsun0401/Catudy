@@ -9,6 +9,7 @@ import org.woorin.catudy.model.PostDTO;
 
 @Service
 public class PostServiceImpl implements PostService {
+	
 	private static int pageSize = 5;// 한 페이지에 보여줄 게시글 수
 	
 	@Autowired private MainMapper mapper;
@@ -35,6 +36,14 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public List<PostDTO> get_posts_search(String searchval, int page) {
 		return null;
+	}
+
+	// 게시글 등록
+	@Override
+	public void post_insert(PostDTO dto) {
+		System.out.println("PostServiceImpl 실행 시작.");
+		mapper.post_insert(dto);
+		System.out.println("PostServiceImpl 실행 완료.");
 	}
 
 }

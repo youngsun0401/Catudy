@@ -50,25 +50,27 @@
         <!-- 게시글 목록 -->
         <div class="recruit-list-container">
             <div class="recruit-list-menu">
-                <span>전체</span>
-                <span>모집중</span>
-                <span>모집 완료</span>
-                <span>질문&답변</span>
-                <span>자유</span>
-            </div>
-            <!-- <div class="middle-line"></div> -->
-            <div>
-                <div class="recruit-list-sort">
-                    <div>
-                        <span>• 최신순</span>
-                        <span>• 댓글순</span>
-                        
-                    </div>
-                    <div>
+                <div class="recruit-list-menu-item">
+                    <span>전체</span>
+                    <span>모집중</span>
+                    <span>모집 완료</span>
+                    <span>질문&답변</span>
+                    <span>자유</span>
+                </div>
+
+                <div>
+                    <!-- 비회원 -->
+                    <th:block th:if="${session.member_id == null}">
+                        <div></div>
+                    </th:block>
+                    <!-- 회원 -->
+                    <th:block th:unless="${session.member_id == null}">
                         <button class="write-btn" onclick="location.href='/write'">글쓰기</button>
-                    </div>
+                    </th:block>
+                    
                 </div>
             </div>
+            <!-- <div class="middle-line"></div> -->
             <div class="recruit-list">
                 <div class="recruit-list-box">
                     <div class="recruit-content">
@@ -82,7 +84,10 @@
                         </div>
                         <div class="recruit-summary-content">
                             아침 9시부터 오후 9시까지 어쩌구 저쩌구 웅앵웅 공부 열심히 어쩌구 저쩌구 블라블라 어디까지 글을 나오게 하고 잘라야할지 길게 써서 확인해봐야지 아 배고파
-                            진짜 죽을 것 같다 집에 보내줘 한 세 줄 정도는 더 나와도 될 것 같네 하하하하하하하하하하하 어디까지 써야돼 블라블라 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nostrum repudiandae quasi repellat nulla delectus exercitationem ex optio voluptatem! Non similique, delectus id vitae eligendi quasi eaque sint maxime vel.
+                            진짜 죽을 것 같다 집에 보내줘 한 세 줄 정도는 더 나와도 될 것 같네 하하하하하하하하하하하 어디까지 써야돼 블라블라 Lorem ipsum dolor sit
+                            amet consectetur, adipisicing elit. Ab nostrum repudiandae quasi repellat nulla delectus
+                            exercitationem ex optio voluptatem! Non similique, delectus id vitae eligendi quasi eaque
+                            sint maxime vel.
                         </div>
                         <div class="recruit-post-writer">
                             <div>
@@ -94,54 +99,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="recruit-list-box">
-                    <div class="recruit-content">
-                        <div class="recruit-badge-state">
-                            <div class="recruit-badge">모집중</div>
-                            <div class="recruit-badge-date">1분 전</div>
-                        </div>
-                        <div class="recruit-main-title">
-                            <div class="recruit-main-subject"> 같이 토익 900점 찍을 사람 구함</div>
-                            <div class="recruit-main-date">220901 ~ 221201</div>
-                        </div>
-                        <div class="recruit-summary-content">
-                            아침 9시부터 오후 9시까지 어쩌구 저쩌구 웅앵웅 공부 열심히 어쩌구 저쩌구 블라블라 어디까지 글을 나오게 하고 잘라야할지 길게 써서 확인해봐야지 아 배고파
-                            진짜 죽을 것 같다 집에 보내줘 한 세 줄 정도는 더 나와도 될 것 같네 하하하하하하하하하하하 어디까지 써야돼 블라블라 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nostrum repudiandae quasi repellat nulla delectus exercitationem ex optio voluptatem! Non similique, delectus id vitae eligendi quasi eaque sint maxime vel.
-                        </div>
-                        <div class="recruit-post-writer">
-                            <div>
-                                <p>아이스크림사줘</p>
-                            </div>
-                            <div>
-                                <span>댓글 (1)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="recruit-list-box">
-                    <div class="recruit-content">
-                        <div class="recruit-badge-state">
-                            <div class="recruit-badge">모집중</div>
-                            <div class="recruit-badge-date">1분 전</div>
-                        </div>
-                        <div class="recruit-main-title">
-                            <div class="recruit-main-subject"> 같이 토익 900점 찍을 사람 구함</div>
-                            <div class="recruit-main-date">220901 ~ 221201</div>
-                        </div>
-                        <div class="recruit-summary-content">
-                            아침 9시부터 오후 9시까지 어쩌구 저쩌구 웅앵웅 공부 열심히 어쩌구 저쩌구 블라블라 어디까지 글을 나오게 하고 잘라야할지 길게 써서 확인해봐야지 아 배고파
-                            진짜 죽을 것 같다 집에 보내줘 한 세 줄 정도는 더 나와도 될 것 같네 하하하하하하하하하하하 어디까지 써야돼 블라블라 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nostrum repudiandae quasi repellat nulla delectus exercitationem ex optio voluptatem! Non similique, delectus id vitae eligendi quasi eaque sint maxime vel.
-                        </div>
-                        <div class="recruit-post-writer">
-                            <div>
-                                <p>아이스크림사줘</p>
-                            </div>
-                            <div>
-                                <span>댓글 (1)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
+                
 
 
             </div>
@@ -149,6 +108,10 @@
         </div>
 
     </div>
+
+    <!-- JS -->
+    <script src="/js/recruit.js"></script>
+
     <!-- 전체 박스 끝 -->
 
 

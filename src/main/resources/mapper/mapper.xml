@@ -185,7 +185,7 @@
 
 <insert id="post_insert">
 	INSERT INTO postTBL (post_title, post_category, post_content, post_writer) 
-	VALUES('', '', '', 0)
+	VALUES(#{post_title}, #{post_category}, #{post_content}, #{post_writer})
 </insert>
 
 <update id="post_update">
