@@ -1,14 +1,9 @@
 const { readFileSync } = require("fs");
 const { createServer } = require("https");
-const { Server } = require("socket.io");
 const express = require("express");
+const { Server } = require("socket.io");
 
 const app = express();
-
-// const httpServer = createServer({
-//   key: readFileSync("key.pem"),
-//   cert: readFileSync("cert.pem")
-// }, app);
 
 // 인증키 생성 아래 링크 참조
 // https://letsencrypt.org/docs/certificates-for-localhost/
