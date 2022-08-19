@@ -10,6 +10,7 @@ myVideo.style.width = '200px';
 myVideo.style.height = '100%';
 
 const room_name = document.getElementById('room_name').value;
+const button = document.getElementById('getIDs');
 
 const socket = io('wss://192.168.10.97:3000', {
     transports: ['websocket']
@@ -36,6 +37,7 @@ navigator.mediaDevices.getUserMedia({
     myPeer.on('open', id => {
         console.log(`${room_name}방 참가중`, id)
         socket.emit('join-room', room_name, id)
+        socket.emit('getIDs')
     })
 
     await addVideoStream(myVideo, stream, showings[0])
@@ -72,17 +74,15 @@ navigator.mediaDevices.getUserMedia({
         console.log('새로운 참가자 연결됨', userId)
         const call = await myPeer.call(userId, stream, { metadata: { userId: peers.id } })
         console.log('새로운 참가자 들어오는중..')
-        // console.log(call.peer)
         const video = document.createElement('video')
         video.style.width = '200px';
         video.style.height = '200px';
 
         call.on('stream', async(userVideoStream) => {
             // console.log('userVideoStream', userVideoStream, streamIdList.indexOf(userVideoStream.id))
-            // const video = document.createElement('video')
-            // video.style.width = '200px';
-            // video.style.height = '200px';
-            if (streamIdList.indexOf(userVideoStream.id) == -1) {   // 처음보는 스트림(사용자의 영상)이라면
+
+            // 처음보는 스트림(사용자의 영상)이라면
+            if (streamIdList.indexOf(userVideoStream.id) == -1) {
                 console.log('참가자 스트림 받는중/')
                 streamIdList.push(userVideoStream.id)
                 for(let showingsCount = 1; showings[showingsCount]; showingsCount++) {
@@ -115,32 +115,32 @@ socket.on('user-disconnected', userId => {
 myVideo.muted = true
 const peers = {}
 
-//쓰이지않음
-function connectToNewUser(myPeer, userId, stream) {
-    // console.log('connectToNewUser', userId)
-    const call = myPeer.call(userId, stream, { metadata: { userId: peers.id } })
-    console.log('새로운 참가자 들어오는중..')
-    const video = document.createElement('video')
-    video.style.width = '200px';
-    video.style.height = '200px';
+// //쓰이지않음 (복구용)
+// function connectToNewUser(myPeer, userId, stream) {
+//     // console.log('connectToNewUser', userId)
+//     const call = myPeer.call(userId, stream, { metadata: { userId: peers.id } })
+//     console.log('새로운 참가자 들어오는중..')
+//     const video = document.createElement('video')
+//     video.style.width = '200px';
+//     video.style.height = '200px';
 
-    call.on('stream', async (userVideoStream) => {
-        console.log('새로운 참가자 id', userVideoStream)
-        if (streamIdList.indexOf(stream.id) == -1) {   // 처음보는 스트림(사용자의 영상)이라면
-            console.log('참가자 스트림 받는중/', showingsCount, '번에 배치됨.')
-            streamIdList.push(stream.id)
-            // await addVideoStream(video.cloneNode(), userVideoStream, showings[showingsCount++])
-            await addVideoStream(video, userVideoStream, testgrid)
-        } else {
-            console.log('배치되지 않은 유저', userVideoStream)
-        }
-    })
-    call.on('close', () => {
-        console.log('close')
-        video.remove()
-    })
-    peers[userId] = call
-}
+//     call.on('stream', async (userVideoStream) => {
+//         console.log('새로운 참가자 id', userVideoStream)
+//         if (streamIdList.indexOf(stream.id) == -1) {   // 처음보는 스트림(사용자의 영상)이라면
+//             console.log('참가자 스트림 받는중/', showingsCount, '번에 배치됨.')
+//             streamIdList.push(stream.id)
+//             // await addVideoStream(video.cloneNode(), userVideoStream, showings[showingsCount++])
+//             await addVideoStream(video, userVideoStream, testgrid)
+//         } else {
+//             console.log('배치되지 않은 유저', userVideoStream)
+//         }
+//     })
+//     call.on('close', () => {
+//         console.log('close')
+//         video.remove()
+//     })
+//     peers[userId] = call
+// }
 
 var streamIdList = []
 async function addVideoStream(video, stream, grid) {
