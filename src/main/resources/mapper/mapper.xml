@@ -1,211 +1,237 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-                  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.woorin.catudy.mapper.MainMapper">
 
-<!-- 리턴타입용 resultMap -->
-<!-- 회원 -->
-<resultMap id="member" type="org.woorin.catudy.model.MemberDTO">
-	<result column="member_no"       property="member_no"/>
-	<result column="member_id"       property="member_id"/>
-	<result column="member_pw"       property="member_pw"/>
-	<result column="member_nick"     property="member_nick"/>
-	<result column="member_comment"  property="member_comment"/>
-	<result column="member_regdate"  property="member_regdate"/>
-</resultMap>
+    <!-- 리턴타입용 resultMap -->
+    <!-- 회원 -->
+    <resultMap id="member" type="org.woorin.catudy.model.MemberDTO">
+        <result column="member_no" property="member_no"/>
+        <result column="member_id" property="member_id"/>
+        <result column="member_pw" property="member_pw"/>
+        <result column="member_nick" property="member_nick"/>
+        <result column="member_comment" property="member_comment"/>
+        <result column="member_regdate" property="member_regdate"/>
+    </resultMap>
 
-<!-- 스터디방 -->
-<resultMap id="room" type="org.woorin.catudy.model.RoomDTO">
-	<result column="room_no"         property="room_no"/>
-	<result column="room_title"      property="room_title"/>
-	<result column="room_category"   property="room_category"/>
-	<result column="room_ruler"      property="room_ruler"/>
-	<result column="room_introduce"  property="room_introduce"/>
-	<result column="room_rule"       property="room_rule"/>
-	<result column="room_regdate"    property="room_regdate"/>
-	<result column="room_open"       property="room_open"/>
-	<!-- ??? 태그 추가 필요 -->
-</resultMap>
+    <!-- 스터디방 -->
+    <resultMap id="room" type="org.woorin.catudy.model.RoomDTO">
+        <result column="room_no" property="room_no"/>
+        <result column="room_title" property="room_title"/>
+        <result column="room_category" property="room_category"/>
+        <result column="room_ruler" property="room_ruler"/>
+        <result column="room_introduce" property="room_introduce"/>
+        <result column="room_rule" property="room_rule"/>
+        <result column="room_regdate" property="room_regdate"/>
+        <result column="room_open" property="room_open"/>
+        <!-- ??? 태그 추가 필요 -->
+    </resultMap>
 
-<!-- 이미지 -->
-<resultMap id="image" type="org.woorin.catudy.model.ImageDTO">
-	<result column="image"  property="image"/>
-</resultMap>
+    <!-- 이미지 -->
+    <resultMap id="image" type="org.woorin.catudy.model.ImageDTO">
+        <result column="image" property="image"/>
+    </resultMap>
 
-<!-- 서랍글 -->
-<resultMap id="document" type="org.woorin.catudy.model.DocumentDTO">
-	<result column="document_no"       property="document_no"/>
-	<result column="document_content"  property="document_content"/>
-	<result column="document_type"     property="document_type"/>
-	<collection property="document_writer" resultMap="member"/>
-</resultMap>
+    <!-- 서랍글 -->
+    <resultMap id="document" type="org.woorin.catudy.model.DocumentDTO">
+        <result column="document_no" property="document_no"/>
+        <result column="document_content" property="document_content"/>
+        <result column="document_type" property="document_type"/>
+        <collection property="document_writer" resultMap="member"/>
+    </resultMap>
 
-<!-- 댓글 -->
-<resultMap id="comment" type="org.woorin.catudy.model.CommentDTO">
-	<result column="comment_no"             property="comment_no"/>
-	<result column="comment_target_comment" property="comment_target_comment"/>
-	<result column="comment_content"        property="comment_content"/>
-	<result column="comment_regdate"        property="comment_regdate"/>
-	<collection property="comment_writer" resultMap="member"/>
-</resultMap>
+    <!-- 댓글 -->
+    <resultMap id="comment" type="org.woorin.catudy.model.CommentDTO">
+        <result column="comment_no" property="comment_no"/>
+        <result column="comment_target_comment" property="comment_target_comment"/>
+        <result column="comment_content" property="comment_content"/>
+        <result column="comment_regdate" property="comment_regdate"/>
+        <collection property="comment_writer" resultMap="member"/>
+    </resultMap>
 
-<!-- 게시글 -->
-<resultMap id="post" type="org.woorin.catudy.model.PostDTO">
-	<result column="post_no"         property="post_no"/>
-	<result column="post_title"      property="post_title"/>
-	<result column="post_category"   property="post_category"/>
-	<result column="post_content"    property="post_content"/>
-	<result column="post_writer"     property="post_writer"/>
-	<result column="post_regdate"    property="post_regdate"/>
-	<result column="post_viewcount"  property="post_viewcount"/>
-	<collection property="post_writer_dto" resultMap="member"/>
-</resultMap>
-
-
+    <!-- 게시글 -->
+    <resultMap id="post" type="org.woorin.catudy.model.PostDTO">
+        <result column="post_no" property="post_no"/>
+        <result column="post_title" property="post_title"/>
+        <result column="post_category" property="post_category"/>
+        <result column="post_content" property="post_content"/>
+        <result column="post_writer" property="post_writer"/>
+        <result column="post_regdate" property="post_regdate"/>
+        <result column="post_viewcount" property="post_viewcount"/>
+        <collection property="post_writer_dto" resultMap="member"/>
+    </resultMap>
 
 
+    <select id="member_select" resultMap="member">
+        SELECT member_no, member_id, member_pw, member_nick, member_comment, member_regdate
+        FROM memberTBL;
+    </select>
+    <!--회원가입-->
+    <insert id="member_insert">
+        INSERT INTO memberTBL (member_id, member_pw, member_nick, member_comment)
+        VALUES (#{member_id}, #{member_pw}, #{member_nick}, #{member_comment})
+    </insert>
+    <!--  회원가입 아이디 중복 체크  -->
+    <select id="memberIdCheck" resultType="int" parameterType="String"> Select Count(*)
+                                                                        from memberTBL
+                                                                        where member_id = #{member_id} </select>
+    <!--  회원가입 닉네임 중복 체크  -->
+    <select id="memberNickCheck" resultType="int" parameterType="String"> Select Count(*)
+                                                                          from memberTBL
+                                                                          where member_nick = #{member_nick} </select>
 
-<select id="member_select" resultMap="member">
-	SELECT member_no, member_id, member_pw, member_nick, member_comment, member_regdate FROM memberTBL;
-</select>
-<!--회원가입-->
-<insert id="member_insert">
-	INSERT INTO memberTBL (member_id, member_pw, member_nick, member_comment)
-	VALUES(#{member_id}, #{member_pw}, #{member_nick}, #{member_comment})
-</insert>
+    <update id="member_update">
+        UPDATE memberTBL
+        SET member_id=#{member_id},
+            member_pw=#{member_pw},
+            member_comment=#{member_comment}
+        WHERE member_no = #{member_no};
+    </update>
 
-<update id="member_update">
-	UPDATE memberTBL SET member_id=#{member_id}, member_pw=#{member_pw}, member_comment=#{member_comment}
-	WHERE member_no=#{member_no};
-</update>
+    <delete id="member_delete">
+        DELETE
+        FROM memberTBL
+        WHERE member_no = #{member_no}
+    </delete>
 
-<delete id="member_delete">
-	DELETE FROM memberTBL
-	WHERE member_no=#{member_no}
-</delete>
+    <!-- 회원 로그인 -->
+    <select id="memberRealPassword" resultType="String">
+        Select member_pw
+        from memberTBL
+        where member_id = #{member_id}
+    </select>
 
-	<!-- 회원 로그인 -->
-	<select id="memberRealPassword" resultType="String">
-		Select member_pw from memberTBL where member_id = #{member_id}
-	</select>
-
-	<!-- 회원 로그인 1 -->
-	<select id="memberOneSelect" resultType="org.woorin.catudy.model.MemberDTO">
-		Select * from memberTBL where member_id = #{member_id}
-	</select>
-
-
-
-
-
-<select id="room_select" resultMap="room">
-	SELECT * FROM roomTBL WHERE room_no=#{room_no};
-</select>
-
-<select id="room_select_orderbyNo" resultMap="room">
-	SELECT * FROM roomTBL 
-	ORDER BY room_no DESC 
-	LIMIT #{limit} OFFSET #{offset};
-</select>
-
-<select id="room_select_orderbyNo_onlyOpen" resultMap="room">
-	SELECT * FROM roomTBL
-	WHERE room_open = true 
-	ORDER BY room_no DESC 
-	LIMIT #{limit} OFFSET #{offset};
-</select>
-
-<!-- <insert id="room_insert">
-	INSERT INTO roomTBL (room_title, room_category, room_ruler, room_introduce, room_rule, room_open) 
-	VALUES('', '', 0, '', '', 1);
-</insert>
-
-<update id="room_update">
-	UPDATE roomTBL SET room_title=#{room_title}, room_category=#{room_category}, room_ruler=#{room_ruler}, room_introduce=#{room_introduce}, room_rule=#{room_rule}, room_open=#{room_open} 
-	WHERE room_no=#{room_no};
-</update>
-
-<delete id="room_delete">
-	DELETE FROM roomTBL 
-	WHERE room_no=#{room_no};
-</delete> -->
+    <!-- 회원 로그인 1 -->
+    <select id="memberOneSelect" resultType="org.woorin.catudy.model.MemberDTO">
+        Select *
+        from memberTBL
+        where member_id = #{member_id}
+    </select>
 
 
+    <!-- 스터디방 개설 -->
+    <insert id="room_insert"> INSERT INTO roomTBL (room_title, room_category, room_ruler, room_introduce, room_rule,
+                                                   room_open)
+                              VALUES (#{room_title}, #{room_category}, #{room_ruler}, #{room_introduce}, #{room_rule},
+                                      #{room_open}); </insert>
+    <select id="room_select" resultMap="room">
+        SELECT *
+        FROM roomTBL
+        WHERE room_no = #{room_no};
+    </select>
+
+    <select id="room_select_orderbyNo" resultMap="room">
+        SELECT *
+        FROM roomTBL
+        ORDER BY room_no DESC
+            LIMIT #{limit}
+        OFFSET #{offset};
+    </select>
+
+    <select id="room_select_orderbyNo_onlyOpen" resultMap="room">
+        SELECT *
+        FROM roomTBL
+        WHERE room_open = true
+        ORDER BY room_no DESC
+            LIMIT #{limit}
+        OFFSET #{offset};
+    </select>
+
+    <!-- <insert id="room_insert">
+        INSERT INTO roomTBL (room_title, room_category, room_ruler, room_introduce, room_rule, room_open)
+        VALUES('', '', 0, '', '', 1);
+    </insert>
+
+    <update id="room_update">
+        UPDATE roomTBL SET room_title=#{room_title}, room_category=#{room_category}, room_ruler=#{room_ruler}, room_introduce=#{room_introduce}, room_rule=#{room_rule}, room_open=#{room_open}
+        WHERE room_no=#{room_no};
+    </update>
+
+    <delete id="room_delete">
+        DELETE FROM roomTBL
+        WHERE room_no=#{room_no};
+    </delete> -->
 
 
+    <select id="document_select" resultMap="document">
+        SELECT d.*, m.member_nick
+        from documentTBL d
+                 JOIN memberTBL m
+                      on d.document_writer = m.member_no
+        WHERE d.document_no = #{post_no}
+    </select>
 
-<select id="document_select" resultMap="document">
-	SELECT d.*, m.member_nick from documentTBL d
-	JOIN memberTBL m
-	on d.document_writer = m.member_no
-	WHERE d.document_no=#{post_no}
-</select>
+    <!-- <insert id="document_insert">
+        INSERT INTO documentTBL (document_target, document_writer, document_content, document_type)
+        VALUES(0, 0, '', '');
+    </insert>
 
-<!-- <insert id="document_insert">
-	INSERT INTO documentTBL (document_target, document_writer, document_content, document_type) 
-	VALUES(0, 0, '', '');
-</insert>
+    <update id="document_update">
+        UPDATE documentTBL SET document_content=#{document_content}
+        WHERE document_no=#{document_no};
+    </update>
 
-<update id="document_update">
-	UPDATE documentTBL SET document_content=#{document_content} 
-	WHERE document_no=#{document_no};
-</update>
-
-<delete id="document_delete">
-	DELETE FROM documentTBL 
-	WHERE document_no=#{document_no};
-</delete> -->
-
-
+    <delete id="document_delete">
+        DELETE FROM documentTBL
+        WHERE document_no=#{document_no};
+    </delete> -->
 
 
+    <select id="post_select" resultMap="post">
+        SELECT p.*, m.member_nick
+        from postTBL p
+                 JOIN memberTBL m
+                      on p.post_writer = m.member_no
+        WHERE post_no = #{post_no}
+    </select>
 
-<select id="post_select" resultMap="post">
-	SELECT p.*, m.member_nick from postTBL p 
-	JOIN memberTBL m
-	on p.post_writer = m.member_no
-	WHERE post_no=#{post_no}
-</select>
+    <select id="post_select_orderbyNo_all" resultMap="post">
+        SELECT p.*, m.member_nick
+        from postTBL p
+                 JOIN memberTBL m
+                      on p.post_writer = m.member_no
+        ORDER BY post_no DESC
+            LIMIT #{limit}
+        OFFSET #{offset}
+    </select>
 
-<select id="post_select_orderbyNo_all" resultMap="post">
-	SELECT p.*, m.member_nick from postTBL p 
-	JOIN memberTBL m
-	on p.post_writer = m.member_no
-	ORDER BY post_no DESC
-	LIMIT #{limit} OFFSET #{offset}
-</select>
+    <select id="post_select_orderbyNo_category" resultMap="post">
+        SELECT p.*, m.member_nick
+        from postTBL p
+                 JOIN memberTBL m
+                      on p.post_writer = m.member_no
+        WHERE post_category = #{category}
+        ORDER BY post_no DESC
+            LIMIT #{limit}
+        OFFSET #{offset}
+    </select>
 
-<select id="post_select_orderbyNo_category" resultMap="post">
-	SELECT p.*, m.member_nick from postTBL p 
-	JOIN memberTBL m
-	on p.post_writer = m.member_no
-	WHERE post_category = #{category}
-	ORDER BY post_no DESC
-	LIMIT #{limit} OFFSET #{offset}
-</select>
+    <insert id="post_insert">
+        INSERT INTO postTBL (post_title, post_category, post_content, post_writer)
+        VALUES (#{post_title}, #{post_category}, #{post_content}, #{post_writer})
+    </insert>
 
-<insert id="post_insert">
-	INSERT INTO postTBL (post_title, post_category, post_content, post_writer) 
-	VALUES(#{post_title}, #{post_category}, #{post_content}, #{post_writer})
-</insert>
+    <update id="post_update">
+        UPDATE postTBL
+        SET post_title=#{post_title},
+            post_category=#{post_category},
+            post_content=#{post_content}
+        WHERE post_no = #{post_no}
+    </update>
 
-<update id="post_update">
-	UPDATE postTBL SET post_title=#{post_title}, post_category=#{post_category}, post_content=#{post_content}
-	WHERE post_no=#{post_no}
-</update>
+    <delete id="post_delete">
+        DELETE
+        FROM postTBL
+        WHERE post_no = #{post_no}
+    </delete>
 
-<delete id="post_delete">
-	DELETE FROM postTBL 
-	WHERE post_no=#{post_no}
-</delete>
-
-<select id="comments_on_post" resultMap="comment">
-	SELECT c.* 
-	from postTBL p
-	JOIN commentTBL c
-	on p.post_no = c.comment_target_post
-	WHERE p.post_no = #{post_no}
-</select>
+    <select id="comments_on_post" resultMap="comment">
+        SELECT c.*
+        from postTBL p
+                 JOIN commentTBL c
+                      on p.post_no = c.comment_target_post
+        WHERE p.post_no = #{post_no}
+    </select>
 
 
 </mapper>

@@ -11,6 +11,12 @@ import org.woorin.catudy.model.RoomDTO;
 public class RoomServiceImpl implements RoomService {
 	@Autowired private MainMapper mapper;
 
+	// 스터디방 개설
+	@Override
+	public void room_insert(RoomDTO dto) {
+		mapper.room_insert(dto);
+	}
+
 	// 특정 스터디방 정보
 	@Override
 	public RoomDTO getRoom(int room_no) {
