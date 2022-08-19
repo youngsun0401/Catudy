@@ -28,29 +28,32 @@
 
     <!-- 로그인폼 -->
     <div class="centerForm">
-        <form action="member_insert" method="POST" id="memberInsertFrom" autocomplete="off" onsubmit="return mySubmit()">
+        <form action="member_insert" method="post" id="memberInsertFrom" autocomplete="off" onsubmit="return mySubmit()">
             <h1 class="marginBot">회원가입</h1>
             <!-- 아이디 -->
             <div class="form-group">
                 <label for="member_id" class="fontDesign">아이디</label>
                 <div class="">
-                    <input type="text" class="inputDesign marginBot" id="member_id" name="member_id" placeholder="ID">
+                    <input type="text" class="inputDesign" id="member_id" name="member_id" placeholder="ID">
+                    <div class="marginBot idCheck">아이디를 입력해줘</div>
+
                 </div>
             </div>
             <!-- 비밀번호 -->
             <div class="form-group">
                 <label for="member_pw" class="fontDesign">비밀번호</label>
                 <div class="">
-                    <input type="password" class="inputDesign marginBot" id="member_pw" name="member_pw"
-                        placeholder="Password">
+                    <input type="password" class="inputDesign" id="member_pw" name="member_pw"
+                           placeholder="Password">
+                    <div class="marginBot pwCheck"></div>
                 </div>
             </div>
             <!-- 닉네임 -->
             <div class="form-group">
                 <label for="member_nick" class="fontDesign">닉네임</label>
                 <div class="">
-                    <input type="text" class="inputDesign marginBot" id="member_nick" name="member_nick"
-                        placeholder="Password">
+                    <input type="text" class="inputDesign" id="member_nick" name="member_nick">
+                    <div class="marginBot nickCheck">닉네임을 입력해줘</div>
                 </div>
             </div>
             <!-- 각오 -->
@@ -58,13 +61,13 @@
                 <label for="member_comment" class="fontDesign">각오</label>
                 <div class="">
                     <input type="text" class="inputDesign marginBot" id="member_comment" name="member_comment"
-                        placeholder="각오 한 마디를 적어주세요!">
+                           placeholder="각오 한 마디를 적어주세요!">
                 </div>
             </div>
-            <!-- 로그인 가입하기 버튼 -->
+            <!-- 가입하기 버튼 -->
             <div class="form-group">
                 <div>
-                    <button type="submit" class="Btn bg-yel">Join us</button>
+                    <input type="submit" class="Btn bg-yel" id="joinBtn" value="Join us">
                 </div>
             </div>
         </form>

@@ -24,6 +24,19 @@ public class MemberServiceImpl implements MemberService {
 		mapper.member_insert(dto);
 		System.out.println("회원가입 및 비밀번호 암호화 완료.");
 	}
+	// 회원가입 아이디 중복 체크
+	@Override
+	public int memberIdCheck(String member_id) {
+		int cnt = mapper.memberIdCheck(member_id);
+		return cnt;
+	}
+
+	// 회원가입 닉네임 중복 체크
+	@Override
+	public int memberNickCheck(String member_nick) {
+		int nickCnt = mapper.memberNickCheck(member_nick);
+		return nickCnt;
+	}
 	
 	// 회원 삭제
 	@Override

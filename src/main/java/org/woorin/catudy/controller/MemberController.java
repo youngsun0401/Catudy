@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.woorin.catudy.mapper.MainMapper;
 import org.woorin.catudy.model.MemberDTO;
@@ -31,6 +33,21 @@ public class MemberController {
     public String member_insert(MemberDTO dto) {
         memberService.member_insert(dto);
         return "redirect:/";
+    }
+    // 유저 회원가입 - 아이디 중복체크
+    @PostMapping("/memberIdCheck")
+    @ResponseBody
+    public int memberIdCheck(@RequestParam("member_id") String member_id) {
+        int cnt = memberService.memberIdCheck(member_id);
+        return cnt;
+    }
+
+    // 유저 회원가입 - 닉네임 중복체크
+    @PostMapping("/memberNickCheck")
+    @ResponseBody
+    public int memberNickCheck(@RequestParam("member_nick") String member_nick) {
+        int nickCnt = memberService.memberNickCheck(member_nick);
+        return nickCnt;
     }
 
     // 로그인 화면 이동
@@ -76,6 +93,7 @@ public class MemberController {
         session.invalidate();
         return "redirect:/";
     }
+
 }
 
 
