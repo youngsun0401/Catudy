@@ -51,7 +51,7 @@
         <div class="recruit-list-container">
             <div class="recruit-list-menu">
                 <div class="recruit-list-menu-item">
-                    <span>전체</span>
+                    <span><a href="">전체</a></span>
                     <span>모집중</span>
                     <span>모집 완료</span>
                     <span>질문&답변</span>
@@ -72,6 +72,7 @@
             </div>
             <!-- <div class="middle-line"></div> -->
             <div class="recruit-list">
+                
                 <div class="recruit-list-box" th:each="post: ${posts}">
                     <div class="recruit-content">
                         <div class="recruit-badge-state">
@@ -85,7 +86,7 @@
                             <div class="recruit-main-subject" th:text="${post.post_title}"></div>
                             <div class="recruit-main-date">220901 ~ 221201</div>
                         </div>
-                        <div class="recruit-summary-content" th:text="${post.post_content}"></div>
+                        <div class="recruit-summary-content" th:utext="${post.post_content}"></div>
                         <div class="recruit-post-writer">
                             <div>
                                 <p th:text="${post.post_writer_dto.member_nick}"></p>
