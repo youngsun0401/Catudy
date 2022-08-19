@@ -10,6 +10,7 @@ myVideo.style.width = '200px';
 myVideo.style.height = '100%';
 
 const room_name = document.getElementById('room_name').value;
+const button = document.getElementById('getIDs');
 
 const socket = io('wss://192.168.10.97:3000', {
     transports: ['websocket']
@@ -36,6 +37,7 @@ navigator.mediaDevices.getUserMedia({
     myPeer.on('open', id => {
         console.log(`${room_name}방 참가중`, id)
         socket.emit('join-room', room_name, id)
+        socket.emit('getIDs')
     })
 
     await addVideoStream(myVideo, stream, showings[0])
