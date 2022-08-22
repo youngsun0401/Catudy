@@ -29,9 +29,11 @@ public interface MainMapper {
 
     // 스터디방 개설
     void room_insert(RoomDTO dto);
-
-
+    // 스터디방 목록
     public RoomDTO room_select(int room_no);
+    // 스터디방 목록
+    List<RoomDTO> room_list();
+
 
     public List<RoomDTO> room_select_orderbyNo(int offset, int limit);
 

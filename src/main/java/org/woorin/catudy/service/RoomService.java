@@ -12,6 +12,8 @@ public interface RoomService {
 	public RoomDTO getRoom(int room_no);
 	// 스터디방 최신순 조회
 	public List<RoomDTO> getRooms_latest(int from, int number, boolean onlyopen);
+	// 스터디방 목록 조회
+	List<RoomDTO> room_list();
 
 
 	// 스터디방 정보 수정

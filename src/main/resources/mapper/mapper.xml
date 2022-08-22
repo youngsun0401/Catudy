@@ -114,10 +114,15 @@
                                                    room_open)
                               VALUES (#{room_title}, #{room_category}, #{room_ruler}, #{room_introduce}, #{room_rule},
                                       #{room_open}); </insert>
+
     <select id="room_select" resultMap="room">
         SELECT *
         FROM roomTBL
         WHERE room_no = #{room_no};
+    </select>
+
+    <select id="room_list" resultType="org.woorin.catudy.model.RoomDTO">
+        select * from roomTBL ;
     </select>
 
     <select id="room_select_orderbyNo" resultMap="room">
