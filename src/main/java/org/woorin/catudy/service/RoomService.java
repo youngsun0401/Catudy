@@ -15,6 +15,9 @@ public interface RoomService {
 	// 스터디방 목록 조회
 	List<RoomDTO> room_list();
 
+	// 스터디방 입장
+	void enterRoom(Integer room_no, int member_no);
+
 
 	// 스터디방 정보 수정
 	// 참여인원 조회

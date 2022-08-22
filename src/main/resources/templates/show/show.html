@@ -22,6 +22,15 @@
     <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
     <!-- <script src="/socket.io/socket.io.js" defer></script> -->
     <script src="/js/connectPeers.js" defer></script>
+    <!-- 채팅 -->
+    <script th:inline="javascript">/*<![CDATA[*/
+        let room_no = [[${room_no}]];// 방 번호
+        let member_no = [[${member_no}]];// 회원번호
+        console.log(room_no);
+        console.log(member_no);
+        /*]]>*/
+    </script>
+    <script src="/js/chatting.js"></script>
     <title>Show</title>
 </head>
 

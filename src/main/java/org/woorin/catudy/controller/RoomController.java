@@ -2,8 +2,10 @@ package org.woorin.catudy.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.woorin.catudy.mapper.MainMapper;
 import org.woorin.catudy.model.RoomDTO;
 import org.woorin.catudy.service.RoomService;
@@ -34,6 +36,18 @@ public class RoomController {
         roomService.room_insert(dto);
         return "redirect:/";
     }
+
+	//// 스터디방 입장
+	@GetMapping("/show")
+	public String show(@RequestParam Integer room, Model model, HttpSession session) {
+		//// ??? 미구현   자기가 속한 스터디방이 아니면 입장 거부됨
+		roomService.enterRoom( room, loginId(session));
+        model.addAttribute("member_no", loginId(session));
+        model.addAttribute("room_no", room);
+		return "show/show";
+	}
+
+
 
     // 회원번호 가져오기
     private static int loginId( HttpSession session ) {

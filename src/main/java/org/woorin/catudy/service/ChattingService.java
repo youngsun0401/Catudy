@@ -24,7 +24,7 @@ public class ChattingService {
 		System.out.println("채팅 세션 open: " + session.toString());
 		if(!clients.contains(session)) {
 			clients.add(session);
-			System.out.println("session open : " + session + ", " + session.getRequestParameterMap().get("a")+"번 방");
+			System.out.println("session open : " + session + ", " + session.getRequestParameterMap().get("room")+"번 방, " + session.getRequestParameterMap().get("member")+"번 회원");
 		}else {
 			System.out.println("이미 연결된 session 임!!!");
 		}
