@@ -114,10 +114,28 @@
                                                    room_open)
                               VALUES (#{room_title}, #{room_category}, #{room_ruler}, #{room_introduce}, #{room_rule},
                                       #{room_open}); </insert>
+
     <select id="room_select" resultMap="room">
         SELECT *
         FROM roomTBL
         WHERE room_no = #{room_no};
+    </select>
+
+    <select id="room_list" resultType="org.woorin.catudy.model.RoomDTO">
+        select * from roomTBL;
+    </select>
+
+    <!--  test  -->
+    <select id="roomList" resultType="String" parameterType="String"> Select Count(*)
+                                                                          from roomTBL
+                                                                          where room_title = #{room_title} </select>
+
+
+    <select id = "getroom" resultType="org.woorin.catudy.model.RoomDTO" parameterType="int">
+        SELECT *
+        FROM roomTBL
+        WHERE room_no = #{room_no};
+
     </select>
 
     <select id="room_select_orderbyNo" resultMap="room">

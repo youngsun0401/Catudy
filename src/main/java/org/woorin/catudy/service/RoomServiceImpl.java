@@ -32,5 +32,22 @@ public class RoomServiceImpl implements RoomService {
 			return mapper.room_select_orderbyNo(from, number);
 		}
 	}
+	// 스터디방 목록 조회
+	@Override
+	public List<RoomDTO> room_list() {
+		return mapper.room_list();
+	}
+
+	@Override
+	public List<RoomDTO> getroom(int room_no) {
+		return null;
+	}
+
+	@Override
+	public String roomList(String room_title) {
+		mapper.roomList(room_title);
+		return room_title;
+	}
+
 
 }
