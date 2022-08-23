@@ -50,6 +50,8 @@ public interface MainMapper {
 
     public PostDTO post_select(int post_no);// 특정 게시물
 
+    public PostDTO post_detail_view(int post_no);
+
     public List<PostDTO> post_select_orderbyNo_all(int offset, int limit);// 전체 카테고리 목록
 
     public List<PostDTO> post_select_orderbyNo_category(String category, int offset, int limit);// 특정 카테고리 목록
@@ -61,6 +63,8 @@ public interface MainMapper {
     public void post_delete(Integer post_no);
 
     public List<CommentDTO> comments_on_post(Integer post_no);// 게시글의 댓글 목록
+
+    public void post_view_count(int post_no);
 
 
     List<RoomDTO> getroom(int room_no);
