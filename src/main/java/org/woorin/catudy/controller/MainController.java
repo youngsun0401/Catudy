@@ -13,13 +13,11 @@ import org.woorin.catudy.model.RoomDTO;
 import org.woorin.catudy.service.MemberService;
 import org.woorin.catudy.service.RoomService;
 
-import org.springframework.web.bind.annotation.*;
-
 @Controller
 public class MainController {
 
-    @Autowired
-    private RoomService roomService;
+	@Autowired
+	private RoomService roomService;
 
     @Autowired
     MemberService memberService;
@@ -27,18 +25,18 @@ public class MainController {
     @GetMapping("/")
     public String indexPage(Model model) {
 		System.out.println("HELLO");
-        List<RoomDTO> roomList = roomService.room_list();
-        model.addAttribute("roomList", roomList);
+		List<RoomDTO> roomList = roomService.room_list();
+		model.addAttribute("roomList", roomList);
         return "index";
     }
 
 
-    // 기능 확인을 위한 임시 페이지입니다. 서비스 시작전에 방번호(식별자)를 받아와 방을 생성해야 합니다.
-    @GetMapping("/show")
-    public String show() {
-        System.out.println("HELLO SHOW");
-        return "show/show";
-    }
+//    // 기능 확인을 위한 임시 페이지입니다. 서비스 시작전에 방번호(식별자)를 받아와 방을 생성해야 합니다.
+//    @GetMapping("/show")
+//    public String show() {
+//        System.out.println("HELLO SHOW");
+//        return "show/show";
+//    }
 
     // 기능 확인을 위한 임시 페이지입니다.
     @GetMapping("/roomInfo")
