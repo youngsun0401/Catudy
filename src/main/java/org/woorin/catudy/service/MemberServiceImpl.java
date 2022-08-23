@@ -1,15 +1,23 @@
 package org.woorin.catudy.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.woorin.catudy.mapper.MainMapper;
+import org.woorin.catudy.mapper.MemberMapper;
+import org.woorin.catudy.model.AttendDTO;
 import org.woorin.catudy.model.MemberDTO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MainMapper mapper;
+
+	@Autowired
+	private MemberMapper member;
 
 	@Autowired
 	private BCryptPasswordEncoder pwEncoder;
@@ -48,6 +56,23 @@ public class MemberServiceImpl implements MemberService {
 			return null;
 		}
 
+	}
+
+	@Override
+	public MemberDTO member_find(int member_no) {
+		// 조회 시 멤버의 번호만 오게 되는데, 번호를 다시 멤버의 전체 정보를 가져온다.
+		return member.member_find(member_no);
+	}
+
+	@Override
+	public List<MemberDTO> member_list_on_a_room(int room_no) {
+		// room_no 방의 참여자 번호들을 가져옵니다.
+		ArrayList<Integer> member_no_list = member.attended_member(room_no);
+
+		// 가져온 참여자 번호로 유저 정보를 가져옵니다.
+		List<MemberDTO> member_list_on_a_room = new ArrayList<MemberDTO>();
+		member_no_list.forEach((member_no) -> member_list_on_a_room.add(member.member_find(member_no)));
+		return member_list_on_a_room;
 	}
 
 

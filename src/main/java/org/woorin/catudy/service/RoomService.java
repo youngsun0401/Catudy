@@ -13,7 +13,6 @@ public interface RoomService {
 	// 스터디방 최신순 조회
 	public List<RoomDTO> getRooms_latest(int from, int number, boolean onlyopen);
 
-
 	// 스터디방 정보 수정
 	// 참여인원 조회
 	// 참여신청 조회
