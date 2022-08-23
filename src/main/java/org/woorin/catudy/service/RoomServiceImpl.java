@@ -38,5 +38,16 @@ public class RoomServiceImpl implements RoomService {
 		return mapper.room_list();
 	}
 
+	@Override
+	public List<RoomDTO> getroom(int room_no) {
+		return null;
+	}
+
+	@Override
+	public String roomList(String room_title) {
+		mapper.roomList(room_title);
+		return room_title;
+	}
+
 
 }

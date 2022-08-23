@@ -1,13 +1,20 @@
 package org.woorin.catudy.controller;
 
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonArrayFormatVisitor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import org.woorin.catudy.model.RoomDTO;
 import org.woorin.catudy.service.RoomService;
 
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class MainController {
@@ -19,16 +26,36 @@ public class MainController {
     public String indexPage(Model model) {
 		System.out.println("HELLO");
         List<RoomDTO> roomList = roomService.room_list();
-        model.addAttribute("roomList", roomList);
 
+        model.addAttribute("roomList", roomList);
         return "index";
     }
+
+
+    @PostMapping("/newsmoreroom")
+    @ResponseBody
+    public List<RoomDTO> getroom(int room_no) {
+        List<RoomDTO> getroom = roomService.getroom(room_no);
+        return getroom;
+    }
+
+    @PostMapping("/roomList")
+    @ResponseBody
+    public String roomList(@RequestParam("room_title")String room_title) {
+        String roomTitle = roomService.roomList(room_title);
+        return "roomTitle";
+    }
+
+
 
     @GetMapping("/show")
     public String show() {
         System.out.println("HELLO SHOW");
         return "show/show";
     }
+
+
+
 
 
 }

@@ -1,6 +1,7 @@
 package org.woorin.catudy.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.woorin.catudy.model.*;
 
 import java.util.List;
@@ -62,4 +63,7 @@ public interface MainMapper {
     public List<CommentDTO> comments_on_post(Integer post_no);// 게시글의 댓글 목록
 
 
+    List<RoomDTO> getroom(int room_no);
+
+    void roomList(@Param("room_title") String room_title);
 }
