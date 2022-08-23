@@ -58,7 +58,7 @@ public class ChattingService {
 		// TODO 속한 방의 모든 접속자에게 메시지 전송
 		List<Session> room = rooms.get(session);// TODO 이거 안 되냐?
 		for(Session temp: room){// 세션이 속한 방에 속한 세션들 전체 순회하며
-			temp.getBasicRemote().sendText(msg);// 메시지 전송
+			temp.getBasicRemote().sendText(msg);// 메시지 전송 TODO 누구의 메시지인지 표시해야 함.
 		}
 	}
 	

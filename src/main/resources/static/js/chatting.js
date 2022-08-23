@@ -1,17 +1,26 @@
+let socket;
 socketSetting();
+
+//// 채팅 보내기
+function chat(){
+	socket.send(
+		document.getElementById('chattingInput').value
+	);
+}
+
+//// 채팅 설정
 function socketSetting(){
 	let addr = "wss://192.168.10.86:8443/chat?room="+room_no+"&member="+member_no+"&password="+chatting_password;// ??? 현재 주소 로컬호스트
 	console.log(addr);
-	let socket = new WebSocket(addr);
+	socket = new WebSocket(addr);
 	// let socket = new WebSocket("ws://localhost:8080/chatt");
 
 	socket.onopen = function(e) {
 		console.log("[open] 커넥션이 만들어졌습니다. 데이터를 서버에 전송해봅시다.");
-		socket.send("My name is SUN");
 	};
 
 	socket.onmessage = function(event) {
-		console.log(`[message] 서버로부터 전송받은 데이터: ${event.data}`);
+		console.log(`[채팅]받은 데이터: ${event.data}`);
 	};
 
 	socket.onclose = function(event) {
