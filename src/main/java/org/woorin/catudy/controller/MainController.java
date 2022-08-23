@@ -26,26 +26,9 @@ public class MainController {
     public String indexPage(Model model) {
 		System.out.println("HELLO");
         List<RoomDTO> roomList = roomService.room_list();
-
         model.addAttribute("roomList", roomList);
         return "index";
     }
-
-
-    @PostMapping("/newsmoreroom")
-    @ResponseBody
-    public List<RoomDTO> getroom(int room_no) {
-        List<RoomDTO> getroom = roomService.getroom(room_no);
-        return getroom;
-    }
-
-    @PostMapping("/roomList")
-    @ResponseBody
-    public String roomList(@RequestParam("room_title")String room_title) {
-        String roomTitle = roomService.roomList(room_title);
-        return "roomTitle";
-    }
-
 
 
     @GetMapping("/show")
@@ -53,9 +36,5 @@ public class MainController {
         System.out.println("HELLO SHOW");
         return "show/show";
     }
-
-
-
-
 
 }
