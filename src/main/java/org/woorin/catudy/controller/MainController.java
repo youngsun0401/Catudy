@@ -10,6 +10,8 @@ import org.woorin.catudy.service.RoomService;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class MainController {
 
@@ -17,7 +19,7 @@ public class MainController {
 	private RoomService roomService;
 
 	@GetMapping("/")
-	public String indexPage(Model model) {
+	public String indexPage(Model model, HttpSession session) {
 		System.out.println("HELLO");
 		List<RoomDTO> roomList = roomService.room_list();
 		model.addAttribute("roomList", roomList);

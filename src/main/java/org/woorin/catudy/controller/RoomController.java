@@ -40,10 +40,15 @@ public class RoomController {
 	//// 스터디방 입장
 	@GetMapping("/show")
 	public String show(@RequestParam Integer room, Model model, HttpSession session) {
-		//// ??? 미구현   자기가 속한 스터디방이 아니면 입장 거부됨
+        //// 비로그인이면 로그인하러 가라고 하기
+        if( loginId(session) == 0 ){
+            return "redirect:/login";
+        }
+		//// TODO 미구현   자기가 속한 스터디방이 아니면 입장 거부됨
 		roomService.enterRoom( room, loginId(session));
         model.addAttribute("member_no", loginId(session));
         model.addAttribute("room_no", room);
+        model.addAttribute("chatting_password", "abc");
 		return "show/show";
 	}
 
