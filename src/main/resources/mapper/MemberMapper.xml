@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.woorin.catudy.mapper.MemberMapper">
+    <select id="member_find" resultType="org.woorin.catudy.model.MemberDTO">
+        select * from memberTBL where member_no = ${member_no};
+    </select>
+
+    <select id="attended_member" resultType="Integer" parameterType="Integer">
+        select attend_target_member from attendTBL where attend_target_room = #{room_no};
+    </select>
+</mapper>

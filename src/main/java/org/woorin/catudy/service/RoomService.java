@@ -23,7 +23,6 @@ public interface RoomService {
 
 	// test 목록 조회
 
-
 	// 스터디방 정보 수정
 	// 참여인원 조회
 	// 참여신청 조회
