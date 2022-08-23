@@ -181,7 +181,7 @@
         WHERE document_no=#{document_no};
     </delete> -->
 
-
+    <!-- 모집 및 커뮤니티 게시판 -->
     <select id="post_select" resultMap="post">
         SELECT p.*, m.member_nick
         from postTBL p
@@ -238,5 +238,16 @@
         WHERE p.post_no = #{post_no}
     </select>
 
+    <update id="post_view_count">
+        UPDATE PostTBL 
+        SET post_viewcount = post_viewcount + 1
+        WHERE post_no = #{post_no}
+    </update>
+
+    <!-- 모집 및 커뮤니티 게시판 댓글 달기 -->
+    <insert id="comment_insert">
+        INSERT INTO commentTBL (comment_target_post, comment_content, comment_writer)
+        VALUES (#{comment_target_post}, #{comment_content}, #{comment_writer})
+    </insert>
 
 </mapper>
