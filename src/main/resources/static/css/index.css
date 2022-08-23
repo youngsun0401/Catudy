@@ -17,6 +17,11 @@ div {
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none !important;    
+    color: inherit !important;
+}
+
 #wrapper {
     width: 100%;
     height: auto;
@@ -68,6 +73,8 @@ div {
     color: 48px;
 }
 
+
+
 /* 상단 유저 메뉴 */
 .top-menu {
     display: flex;
@@ -83,8 +90,28 @@ div {
 .top-user-menu {
     display: flex;
     justify-content: space-between;
-    font-size: 13px;
+    font-size: 17px;
     cursor: pointer;
+    color: black;
+}
+
+.top-btn:hover {
+    color: #F4D03F;
+}
+
+/*버튼*/
+.madeBtn{
+    width:  max-content;
+    height: 38px;
+    padding: 10px 16px;
+    background: #F4D03F;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    line-height: 19px;
+    border: 0;
+    outline: 0;
 }
 
 /* 상단 유저 정보 */
@@ -488,6 +515,14 @@ input::-webkit-input-placeholder {
     padding: 70px 150px;
     background-color: #424949;
     /* flex: 1; */
+}
+
+.list10:nth-child(n+9){
+    display: none;
+}
+
+.disNone{
+    display: none;
 }
 
 
