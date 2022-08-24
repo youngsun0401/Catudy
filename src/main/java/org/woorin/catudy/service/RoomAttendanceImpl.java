@@ -93,11 +93,10 @@ public class RoomAttendanceImpl implements RoomAttendance{
         // 마지막 기록(최근)기록을 가져옵니다.
         MemberRoomAttendanceDTO memberLog = getCurrentMemberRoomAttended(attends);
 
+        // 출석부터 종료까지의 시간을 구합니다.
         long time_a = memberLog.getAttendance_study_start_time().getTime();
         long time_b = new Date().getTime();
         long diff = (time_b - time_a) / 1000;
-
-        System.out.println(time_a + " " + time_b + " " + diff);
 
         int hour = (int) (diff / 3600);
 		int min = ((int)diff % 3600) / 60;
