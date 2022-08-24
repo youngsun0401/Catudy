@@ -6,12 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.woorin.catudy.mapper.MainMapper;
 import org.woorin.catudy.model.AttendDTO;
 import org.woorin.catudy.model.RoomDTO;
 import org.woorin.catudy.service.RoomService;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class RoomController {
@@ -40,17 +42,13 @@ public class RoomController {
         return "redirect:/";
     }
 
-    // 스터디입장
-    @GetMapping("/getRoom")
-    public String getRoom(@RequestParam("room_no") int room_no, Model model, HttpSession session) {
-        RoomDTO dto = roomService.getRoom(room_no);
-        model.addAttribute("dto", dto);
-        return "show/show";
-    }
+
+
     
 	//// 스터디방 입장
 	@GetMapping("/show")
 	public String show(@RequestParam Integer room, Model model, HttpSession session) {
+        RoomDTO dto = roomService.getRoom(room);
         //// 비로그인이면 로그인하러 가라고 하기
         if( loginId(session) == 0 ){
             return "redirect:/login";
@@ -59,10 +57,9 @@ public class RoomController {
         model.addAttribute("member_no", loginId(session));
         model.addAttribute("room_no", room);
         model.addAttribute("chatting_password", "abc");
-		return "show/show";
+        model.addAttribute("dto", dto);
+        return "show/show";
 	}
-
-
 
     // 회원번호 가져오기
     private static int loginId( HttpSession session ) {

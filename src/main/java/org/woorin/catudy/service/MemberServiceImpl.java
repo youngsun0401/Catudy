@@ -39,13 +39,19 @@ public class MemberServiceImpl implements MemberService {
 		return cnt;
 	}
 
+
 	// 회원가입 닉네임 중복 체크
 	@Override
 	public int memberNickCheck(String member_nick) {
 		int nickCnt = mapper.memberNickCheck(member_nick);
 		return nickCnt;
 	}
-	
+	// 회원 목록
+	@Override
+	public List<MemberDTO> member_list() {
+		return mapper.member_list();
+	}
+
 	// 회원 삭제
 	@Override
 	public void member_delete(Integer member_no) {

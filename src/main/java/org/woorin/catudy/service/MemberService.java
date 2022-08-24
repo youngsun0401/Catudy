@@ -16,7 +16,9 @@ public interface MemberService {
 	MemberDTO member_login(MemberDTO dto);
 	// 회원가입 아이디 중복체크
 	int memberIdCheck(String member_id);
-	
+	// 회원 목록
+	List<MemberDTO> member_list();
+
 	// 회원가입 닉네임 중복체크
 	int memberNickCheck(String member_nick);
 
@@ -28,7 +30,8 @@ public interface MemberService {
     List<MemberDTO> member_list_on_a_room(int room_no);
 
 
-	// 회원정보 수정인
+
+    // 회원정보 수정인
 	// 
 	// 
 	// 
