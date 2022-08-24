@@ -58,7 +58,16 @@
 <!-- 캐터디 타이틀 -->
 <div class="section-title" style="padding: 20px 150px; margin-top: 50px;">
     <div>
-        <p>캐터디 <span class="line-text">둘러보기</span></p>
+        <p>캐터디 
+            <span class="line-text">둘러보기</span>
+            <th:block th:unless="${session.member_id == null}">
+                <span onclick="location.href='/createRoom'" class="line-text madeBtn ">스터디만들기</span>
+            </th:block>     
+
+           
+
+        </p> 
+        
     </div>
 
     <div class="tab-sort">
@@ -104,7 +113,7 @@
                 </div>
                 <div class="room-info">
                     <p th:text="${room.room_title}">방제목</p>
-                    <span class="room-tag">#공무원</span>
+                    <span class="room-tag" th:text="${room.room_ruler}">#공무원</span>
                     <span class="room-tag">#열공하자</span>
                     <span class="room-tag">#배고파</span>
                 </div>

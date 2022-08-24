@@ -12,23 +12,25 @@
                 </div>
                 <div class="logo-title">
                     <span onclick="location.href='/'">Catudy</span><span class="logo-dot">.</span>
-
                 </div>
             </div>
             <div class="col-1 top-menu">
                 <div>Home</div>
-                <div onclick="location.href='/recruit'">모집</div>
+                <div onclick="location.href='/recruit'">모집</div>           
             </div>
+            
             <div class="col-7"></div>
             <div class="col-1 top-user-menu">
                 <!--비회원-->
                 <th:block th:if="${session.member_id == null}">
-                    <div class="top-btn"><a th:href="@{/join}">회원가입</a> </div>
+                    <div class="top-btn"><a th:href="@{/join}">회원가입</a></div>
                     <div class="top-btn"><a th:href="@{/login}">로그인</a></div>
                 </th:block>
                 <th:block th:unless="${session.member_id == null}">
                     <form action="member_logout" method="get">
-                        <button type="submit" class="madeBtn">로그아웃</button>
+                        <div class="top-btn">
+                            <button type="submit" class="madeBtn">로그아웃</button>
+                        </div>
                     </form>
                 </th:block>
             </div>

@@ -1,11 +1,11 @@
-.leftBar{
+.leftBar {
     width: 50px;
     background-color: #FDE685;
     height: 780px;
-    float : left;
+    float: left;
 }
 
-.main{
+.main {
     height: 780px;
 
 
@@ -13,19 +13,19 @@
 
 /* 로고 home 부분 */
 
-.logo{
+.logo {
     font-family: 'Oleo Script Swash Caps', cursive;
     width: 50px;
     height: 30px;
     color: white;
     margin-left: auto;
     margin-right: auto;
-    text-align : center;
-    display : block;
+    text-align: center;
+    display: block;
 }
 
 /* 시각 */
-.clock{
+.clock {
     width: 100%;
     height: 20px;
     background-color: #d2bd5c;
@@ -33,13 +33,13 @@
     font-family: 'Oleo Script Swash Caps', cursive;
     margin-left: auto;
     margin-right: auto;
-    text-align : center;
-    display : block;
+    text-align: center;
+    display: block;
 }
 
 /* 윗 바 */
 
-.topBar{
+.topBar {
     height: 30px;
     width: 100%;
     background: linear-gradient(#444444 70%, #4f4f4f);
@@ -49,13 +49,14 @@
 }
 
 /* 스터디룸이름 */
-.camName{
+.camName {
     float: left;
     margin-top: 4px;
     margin-left: 10px;
 }
+
 /* 음소거 마이크 영상키기 전체화면기능들 */
-.tool{
+.tool {
     text-align: center;
     clear: both;
     left: 50%;
@@ -64,36 +65,36 @@
 
 
 /* 메인화면 */
-.view{
+.view {
     height: 750px;
     width: 100%;
 }
 
-.cam{
+.cam {
     width: 75%;
     height: 100%;
     float: left;
 }
 
-.cam1{
+.cam1 {
     height: 50%;
 }
-.cam2{
+
+.cam2 {
     height: 50%;
 }
 
 /* 영상부분 */
-.showing{
-    float : left;
+.showing {
+    float: left;
     display: block;
-    border: 1px solid rgb(255, 0, 0);
     width: 50%;
     height: 100%;
     background-color: black;
 }
 
 /* 누적시간 */
-.camTime{
+.camTime {
     float: right;
     border: 1px solid rgb(0, 0, 255);
     width: 100px;
@@ -105,44 +106,50 @@
 
 
 /* 채팅방 */
-.chat{
+.chat {
     height: 100%;
-
+    font-family: 'Do Hyeon', sans-serif;
 }
 
 /* 왼쪽사이드바 */
-.line{
+.line {
     width: 1%;
     background: linear-gradient(#444444 70%, #4f4f4f);
     height: 100%;
-    float : left;
+    float: left;
 }
 
-.chatTitle{
+.chatTitle {
+    padding: 13px;
     width: 100%;
     height: 50px;
     border-bottom: 1px solid rgb(193, 192, 192);
     border-right: 1px solid rgb(193, 192, 192);
 }
 
-.memberList{
+.memberList {
     overflow: auto;
-    height:200px;
+    height: 200px;
     border-bottom: 1px solid rgb(193, 192, 192);
     border-right: 1px solid rgb(193, 192, 192);
-
-    position:relative;
-
+    position: relative;
 }
 
-.chatScreen{
+.memberList div {
+    width: 100%;
+    height: 49px;
+    padding: 10px;
+}
+
+
+.chatScreen {
     border-right: 1px solid rgb(193, 192, 192);
     border-bottom: 1px solid rgb(193, 192, 192);
-    height:420px;
-    background-color:#F8F9FA ;
+    height: 420px;
+    background-color: #F8F9FA;
 }
 
-.typing{
+.typing {
     height: 30px;
     border-right: 1px solid rgb(193, 192, 192);
     border-bottom: 1px solid rgb(193, 192, 192);

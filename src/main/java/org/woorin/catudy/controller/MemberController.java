@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.woorin.catudy.mapper.MainMapper;
+import org.woorin.catudy.model.AttendDTO;
 import org.woorin.catudy.model.MemberDTO;
 import org.woorin.catudy.service.MemberService;
 
@@ -66,8 +67,8 @@ public class MemberController {
         if (resultDTO != null) {
 
             System.out.println("아이디 : " + resultDTO.getMember_id());
-            System.out.println("레벨 : " + resultDTO.getMember_nick());
-            System.out.println("닉네임 : " + resultDTO.getMember_comment());
+            System.out.println("닉네임 : " + resultDTO.getMember_nick());
+            System.out.println("한마디 : " + resultDTO.getMember_comment());
 
             HttpSession session = request.getSession();
             session.setAttribute("member_no", resultDTO.getMember_no());

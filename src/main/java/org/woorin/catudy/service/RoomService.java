@@ -16,9 +16,9 @@ public interface RoomService {
 	// 스터디방 목록 조회
 	List<RoomDTO> room_list();
 
-	List<RoomDTO> getroom(int room_no);
-
 	String roomList(String room_title);
+
+
 
 
 	// test 목록 조회

@@ -21,6 +21,7 @@ public class RoomServiceImpl implements RoomService {
 		mapper.attend_room_insert(ato);
 	}
 
+
 	// 특정 스터디방 정보
 	@Override
 	public RoomDTO getRoom(int room_no) {
@@ -39,19 +40,16 @@ public class RoomServiceImpl implements RoomService {
 	// 스터디방 목록 조회
 	@Override
 	public List<RoomDTO> room_list() {
-		return mapper.room_list();
+		return mapper.member_select();
 	}
 
-	@Override
-	public List<RoomDTO> getroom(int room_no) {
-		return null;
-	}
 
 	@Override
 	public String roomList(String room_title) {
 		mapper.roomList(room_title);
 		return room_title;
 	}
+
 
 
 }

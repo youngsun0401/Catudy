@@ -95,6 +95,7 @@ a {
     color: black;
 }
 
+
 .top-btn:hover {
     color: #F4D03F;
 }
@@ -109,10 +110,11 @@ a {
     font-size: 14px;
     font-weight: 700;
     color: white;
-    line-height: 19px;
     border: 0;
     outline: 0;
+    cursor: pointer;
 }
+
 
 /* 상단 유저 정보 */
 
@@ -258,7 +260,7 @@ a {
 
 .room-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 1em;
 }
@@ -517,7 +519,7 @@ input::-webkit-input-placeholder {
     /* flex: 1; */
 }
 
-.list10:nth-child(n+9){
+.list10:nth-child(n+11){
     display: none;
 }
 
@@ -600,6 +602,7 @@ input::-webkit-input-placeholder {
 
     .line-text {
         display: block;
+        
     }
 
     /* .room-box {

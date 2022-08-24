@@ -29,31 +29,14 @@ public class MainController {
     public String indexPage(Model model) {
 		System.out.println("HELLO");
 		List<RoomDTO> roomList = roomService.room_list();
-		model.addAttribute("roomList", roomList);
+        List<MemberDTO> memberList = memberService.member_list();
+        model.addAttribute("roomList", roomList);
+        model.addAttribute("memberList", memberList);
         return "index";
     }
 
 
-    @PostMapping("/newsmoreroom")
-    @ResponseBody
-    public List<RoomDTO> getroom(int room_no) {
-        List<RoomDTO> getroom = roomService.getroom(room_no);
-        return getroom;
-    }
 
-    @PostMapping("/roomList")
-    @ResponseBody
-    public String roomList(@RequestParam("room_title")String room_title) {
-        String roomTitle = roomService.roomList(room_title);
-        return "roomTitle";
-    }
-
-    // 기능 확인을 위한 임시 페이지입니다. 서비스 시작전에 방번호(식별자)를 받아와 방을 생성해야 합니다.
-    // @GetMapping("/show")
-    // public String show() {
-    //     System.out.println("HELLO SHOW");
-    //     return "show/show";
-    // }
 
     // 기능 확인을 위한 임시 페이지입니다.
     @GetMapping("/roomInfo")

@@ -120,29 +120,31 @@
         VALUES (#{attend_target_member}, #{attend_target_room});
     </insert>
 
+    <!--   방정보 불러오기  -->
     <select id="room_select" resultType="org.woorin.catudy.model.RoomDTO">
         SELECT *
         FROM roomTBL
         WHERE room_no = #{room_no};
     </select>
+    <!--참여멤버 불러오기-->
+    <select id="attendRoom_select" resultType="org.woorin.catudy.model.AttendDTO">
+        SELECT *
+        FROM attendTBL
+        WHERE attend_target_room = #{attend_target_room};
+    </select>
 
     <select id="room_list" resultType="org.woorin.catudy.model.RoomDTO">
         select *
-        from roomTBL;
+        from roomTBL ;
     </select>
+
+
 
     <!--  test  -->
     <select id="roomList" resultType="String" parameterType="String"> Select Count(*)
                                                                       from roomTBL
                                                                       where room_title = #{room_title} </select>
 
-
-    <select id="getroom" resultType="org.woorin.catudy.model.RoomDTO" parameterType="int">
-        SELECT *
-        FROM roomTBL
-        WHERE room_no = #{room_no};
-
-    </select>
 
     <select id="room_select_orderbyNo" resultMap="room">
         SELECT *
