@@ -98,7 +98,7 @@
         <!-- 01 -->
         <div class="room-box list10" th:each="room, loop: ${roomList}" id="rooms_list">
 
-            <a th:href="@{/show(room_no=${room.room_no})}">
+            <a th:href="@{/show(room=${room.room_no})}">
                 <div class="room-img">
                     <p> 3 / 4</p>
                 </div>
