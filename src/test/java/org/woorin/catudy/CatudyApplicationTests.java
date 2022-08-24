@@ -1,5 +1,7 @@
 package org.woorin.catudy;
 
+import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.woorin.catudy.mapper.MainMapper;
 import org.woorin.catudy.mapper.MemberMapper;
+import org.woorin.catudy.mapper.MemberRoomAttendanceMapper;
 import org.woorin.catudy.model.AttendDTO;
 import org.woorin.catudy.model.DocumentDTO;
 import org.woorin.catudy.model.MemberDTO;
@@ -25,13 +28,33 @@ class CatudyApplicationTests {
 	@Autowired private PostService   postService;
 	@Autowired private RoomService   roomService;
 	@Autowired private MemberMapper memberMapper;
+	@Autowired private MemberRoomAttendanceMapper attendance;
 
 	@Test
 	void contextLoads() {
-		ArrayList<Integer> list = memberMapper.attended_member(1);
-		System.out.println(list);
-		System.out.println("12341234");
-		return;
+
+		int room_no = 1;
+		int member_no = 1;
+
+		// 공부 시작(출석), 데이터 생성
+		// attendance.studyStart(room_no, member_no);
+		
+		// 공부 종료(퇴실)
+		// attendance.studyEnd(room_no, member_no, new Time(3600000));
+		
+		/// 아래 기능은 사용되지 않을 수 있습니다.
+		
+		// 유저 기록 삭제
+		attendance.deleteMemberAttendance(member_no);
+		
+		// 방 기록 삭제
+		// attendance.deleteRoomAttendance(room_no);
+		
+		// 한 방에 속한 한 유저의 출석정보를 전부 삭제
+		// attendance.deleteMemberRoomAttendance(room_no, member_no);
+		
+		// 한 유저의 출석정보를 조회
+		System.out.println(attendance.getMemberRoomAttendance(room_no, member_no));
 	}
 	
 // 	//// 회원 추가
