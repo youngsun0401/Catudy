@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.woorin.catudy.model.MemberDTO;
 import org.woorin.catudy.model.RoomDTO;
 import org.woorin.catudy.service.MemberService;
@@ -31,12 +34,26 @@ public class MainController {
     }
 
 
-//    // 기능 확인을 위한 임시 페이지입니다. 서비스 시작전에 방번호(식별자)를 받아와 방을 생성해야 합니다.
-//    @GetMapping("/show")
-//    public String show() {
-//        System.out.println("HELLO SHOW");
-//        return "show/show";
-//    }
+    @PostMapping("/newsmoreroom")
+    @ResponseBody
+    public List<RoomDTO> getroom(int room_no) {
+        List<RoomDTO> getroom = roomService.getroom(room_no);
+        return getroom;
+    }
+
+    @PostMapping("/roomList")
+    @ResponseBody
+    public String roomList(@RequestParam("room_title")String room_title) {
+        String roomTitle = roomService.roomList(room_title);
+        return "roomTitle";
+    }
+
+    // 기능 확인을 위한 임시 페이지입니다. 서비스 시작전에 방번호(식별자)를 받아와 방을 생성해야 합니다.
+    @GetMapping("/show")
+    public String show() {
+        System.out.println("HELLO SHOW");
+        return "show/show";
+    }
 
     // 기능 확인을 위한 임시 페이지입니다.
     @GetMapping("/roomInfo")
