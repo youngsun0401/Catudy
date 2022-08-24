@@ -48,7 +48,7 @@ public class MainController {
         return "roomTitle";
     }
 
-// 기능 확인을 위한 임시 페이지입니다. 서비스 시작전에 방번호(식별자)를 받아와 방을 생성해야 합니다.
+    // 기능 확인을 위한 임시 페이지입니다. 서비스 시작전에 방번호(식별자)를 받아와 방을 생성해야 합니다.
     @GetMapping("/show")
     public String show() {
         System.out.println("HELLO SHOW");
