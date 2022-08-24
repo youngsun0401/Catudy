@@ -30,6 +30,7 @@ public interface MainMapper {
 
     // 스터디방 개설
     void room_insert(RoomDTO dto);
+    void attend_room_insert(AttendDTO ato);
     // 스터디방 목록
     public RoomDTO room_select(int room_no);
     // 스터디방 목록
@@ -66,4 +67,5 @@ public interface MainMapper {
     List<RoomDTO> getroom(int room_no);
 
     void roomList(@Param("room_title") String room_title);
+
 }

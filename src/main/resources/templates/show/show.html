@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <!-- css 링크 -->
@@ -22,6 +21,16 @@
     <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
     <!-- <script src="/socket.io/socket.io.js" defer></script> -->
     <script src="/js/connectPeers.js" defer></script>
+    <!-- 채팅 -->
+    <script th:inline="javascript">/*<![CDATA[*/
+        let room_no = [[${room_no}]];// 방 번호
+        let member_no = [[${member_no}]];// 회원번호
+        let chatting_password = [[${chatting_password}]];// 회원번호
+        console.log(room_no);
+        console.log(member_no);
+        /*]]>*/
+    </script>
+    <script src="/js/chatting.js"></script>
     <title>Show</title>
 </head>
 
@@ -75,7 +84,7 @@
                         <div class="chatScreen">
                             여기는 채팅화면
                         </div>
-                        <div class="typing">대화를 입력하세요</div>
+                        <div class="typing"><input id="chattingInput" type="text" placeholder="대화를 입력하세요"><button onclick="chat()">go</button></div>
                     </div>
                 </div>
                 <div style="clear: both;"></div>
