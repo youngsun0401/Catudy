@@ -1,17 +1,18 @@
 package org.woorin.catudy.mapper;
 
 import java.sql.Time;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.woorin.catudy.model.memberRoomAttendanceDTO;
+import org.woorin.catudy.model.MemberRoomAttendanceDTO;
 
 @Mapper
 public interface MemberRoomAttendanceMapper {
     // 공부 시작(출석), 데이터 생성
     int studyStart(int room_no, int member_no);
 
-    // 한 유저의 출석정보를 조회
-    memberRoomAttendanceDTO getMemberRoomAttendance(int room_no, int member_no);
+    // 유저의 출석정보를 조회
+    List<MemberRoomAttendanceDTO> getMemberRoomAttendance(int room_no, int member_no);
 
     // 공부 종료(퇴실)
     int studyEnd(int room_no, int member_no, Time study_time);

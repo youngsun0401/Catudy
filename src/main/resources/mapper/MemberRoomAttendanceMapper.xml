@@ -3,11 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.woorin.catudy.mapper.MemberRoomAttendanceMapper">
 
-    <insert id="studyStart" parameterType="org.woorin.catudy.model.memberRoomAttendanceDTO">
+    <insert id="studyStart" parameterType="org.woorin.catudy.model.MemberRoomAttendanceDTO">
         insert into memberRoomAttendance values(#{room_no}, #{member_no}, now(), null, null, 1)
     </insert>
 
-    <select id="getMemberRoomAttendance" resultType="org.woorin.catudy.model.memberRoomAttendanceDTO">
+    <select id="getMemberRoomAttendance" resultType="org.woorin.catudy.model.MemberRoomAttendanceDTO">
         select * from memberRoomAttendance where attendance_room_no = #{room_no} and attendance_member_no = #{member_no}
     </select>
 
