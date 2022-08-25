@@ -1,39 +1,47 @@
 package org.woorin.catudy;
 
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
+// import java.sql.Time;
+// import java.sql.Timestamp;
+// import java.text.SimpleDateFormat;
+// import java.time.LocalTime;
+// import java.util.ArrayList;
+// import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
+// import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.woorin.catudy.mapper.MemberRoomAttendanceMapper;
-import org.woorin.catudy.service.RoomAttendanceImpl;
+import org.woorin.catudy.mapper.MainMapper;
+// import org.woorin.catudy.mapper.MemberRoomAttendanceMapper;
+import org.woorin.catudy.model.AttendDTO;
+import org.woorin.catudy.model.MemberDTO;
+import org.woorin.catudy.model.RoomDTO;
+// import org.woorin.catudy.service.RoomAttendanceImpl;
+import org.woorin.catudy.service.MemberRoomAttendServiceImpl;
+import org.woorin.catudy.service.MemberService;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CatudyApplicationTests {
-	// @Autowired private MainMapper mapper;
-	// @Autowired private MemberService memberService;
+	@Autowired private MainMapper mapper;
+	@Autowired private MemberService memberService;
 	// @Autowired private PostService   postService;
 	// @Autowired private RoomService   roomService;
 	// @Autowired private MemberMapper memberMapper;
 	// @Autowired private MemberRoomAttendanceMapper attendance;
-
-	@Autowired private RoomAttendanceImpl attendSvc;
+	@Autowired private MemberRoomAttendServiceImpl svc;
 
 	@Test
 	void contextLoads() {
 
-		int room_no = 1;
-		int member_no = 1;
 
-		// System.out.println(attendSvc.studyStart(room_no, member_no));
-		System.out.println(attendSvc.studyEnd(room_no, member_no));
+		MemberDTO member = new MemberDTO();
+		RoomDTO room = new RoomDTO();
+		member.setMember_no(1);
+		room.setRoom_no(1);
 
+		// MemberRoomAttendServiceImpl svc = new MemberRoomAttendServiceImpl();
+		// svc.memberRoomJoin(member, room);
+		svc.memberRoomQuit(member, room);
 	}
 	
 // 	//// 회원 추가

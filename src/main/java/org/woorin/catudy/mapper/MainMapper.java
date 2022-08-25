@@ -30,13 +30,23 @@ public interface MainMapper {
 
     // 스터디방 개설
     void room_insert(RoomDTO dto);
-    void attend_room_insert(AttendDTO ato);
+
+    // 사용자는 해당 방에 가입합니다
+    int attend_room_insert(AttendDTO ato);
+
+    // 사용자는 해당 방에서 탈퇴합니다.
+    int attend_room_quit(AttendDTO ato);
+
     // 스터디방 목록
     public RoomDTO room_select(int room_no);
     // 스터디방 목록
     List<RoomDTO> room_list();
     // 참여멤버 목록
     AttendDTO attendRoom_select(int attend_target_room);
+
+    // 해당 멤버가 참가한 방
+    AttendDTO member_attended_room(int attend_target_member);
+
     List<AttendDTO> attendRoom_select();
 
 

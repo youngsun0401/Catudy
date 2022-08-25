@@ -115,9 +115,9 @@
         VALUES (#{room_title}, #{room_category}, #{room_ruler}, #{room_introduce}, #{room_rule}, #{room_open});
     </insert>
     <!-- 참가스터디 입력  -->
-    <insert id="attend_room_insert">
-        INSERT INTO attendTBL (attend_target_member, attend_target_room)
-        VALUES (#{attend_target_member}, #{attend_target_room});
+    <insert id="attend_room_insert" parameterType="org.woorin.catudy.model.AttendDTO">
+        INSERT INTO attendTBL (attend_target_member, attend_target_room, attend_comment)
+        VALUES (#{attend_target_member}, #{attend_target_room}, #{attend_comment});
     </insert>
 
     <!--   방정보 불러오기  -->
@@ -131,6 +131,13 @@
         SELECT *
         FROM attendTBL
         WHERE attend_target_room = #{attend_target_room};
+    </select>
+
+    <!-- 멤버가 참여한 방을 불러옵니다 -->
+    <select id="member_attended_room" resultType="org.woorin.catudy.model.AttendDTO">
+        select *
+        from attendTBL
+        where attend_target_member = #{attend_target_member}
     </select>
 
     <select id="room_list" resultType="org.woorin.catudy.model.RoomDTO">
@@ -260,4 +267,9 @@
     </select>
 
 
+    <!-- attend_room_quit --> 
+
+    <delete id="attend_room_quit" parameterType="org.woorin.catudy.model.AttendDTO">
+        delete from attendTBL where attend_target_member = #{attend_target_member} and attend_target_room = #{attend_target_room}
+    </delete>
 </mapper>
