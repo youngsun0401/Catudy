@@ -44,4 +44,15 @@ public class PostServiceImpl implements PostService {
 		mapper.post_insert(dto);
 	}
 
+	// 게시글 상세보기
+	@Override
+	public PostDTO post_select(int post_no) {
+		return mapper.post_select(post_no);
+	}
+
+	@Override
+	public void post_view_count(int post_no) {
+		mapper.post_view_count(post_no);
+	}
+
 }
