@@ -11,7 +11,7 @@ myVideo.style.height = '100%';
 
 const room_name = document.getElementById('room_name').value;
 
-const socket = io('wss://192.168.10.97:3000', {
+const socket = io('wss://localhost:3000', {
     transports: ['websocket']
 })
 var tagTest;

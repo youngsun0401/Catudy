@@ -1,0 +1,88 @@
+/* font-family: 'Lily Script One', cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap');
+
+/* font-family: 'Noto Sans KR', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+/* login 폼 */
+
+.centerForm{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    margin-top: 100px;
+    padding-bottom: 250px;
+}
+
+/* input */
+.inputDesign{
+    width: 100%;
+    height: 58px;
+    padding: 10px 12px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    outline: 0;
+    color: #333;
+    letter-spacing: .2px;
+
+}
+
+/* 버튼 */
+.Btn{
+    width: 100%;
+    height: 62px;
+    margin-top: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 0;
+    outline: 0;
+}
+
+/* 만들기버튼 */
+.joinBtn{
+    border: 1px solid rgba(0,0,0,0.2);
+    background-color: white;
+    color : rgb(133, 133, 133);
+}
+
+/* 컬러 yello */
+.bg-yel{
+    background-color: #fee585;
+}
+
+/* margin bottom */
+.marginBot{
+    margin-bottom: 28px;
+}
+
+/* font Design */
+.fontDesign{
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: #4b4b4b;
+    line-height: 1;
+}
+
+
+
+
+/* 여기부터 태블릿 */
+@media screen and (max-width: 1200px){
+
+}
+
+/* 여기부터 모바일 */
+@media screen and (max-width: 768px){
+
+    .centerFrom{
+        width: 200px;
+    }
+
+}

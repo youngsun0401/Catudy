@@ -2,11 +2,12 @@ package org.woorin.catudy.service;
 
 import java.util.List;
 
+import org.woorin.catudy.model.AttendDTO;
 import org.woorin.catudy.model.RoomDTO;
 
 public interface RoomService {
 	// 스터디방 개설
-	void room_insert(RoomDTO dto);
+	void room_insert(RoomDTO dto, AttendDTO ato);
 	// 스터디방 삭제
 	// 스터디방 정보 조회
 	public RoomDTO getRoom(int room_no);
@@ -15,9 +16,11 @@ public interface RoomService {
 	// 스터디방 목록 조회
 	List<RoomDTO> room_list();
 
-	List<RoomDTO> getroom(int room_no);
-
 	String roomList(String room_title);
+
+
+
+
 	// test 목록 조회
 
 

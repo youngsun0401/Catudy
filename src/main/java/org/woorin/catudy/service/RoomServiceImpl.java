@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.woorin.catudy.mapper.MainMapper;
+import org.woorin.catudy.model.AttendDTO;
 import org.woorin.catudy.model.RoomDTO;
 
 @Service
@@ -13,9 +14,13 @@ public class RoomServiceImpl implements RoomService {
 
 	// 스터디방 개설
 	@Override
-	public void room_insert(RoomDTO dto) {
+	public void room_insert(RoomDTO dto, AttendDTO ato) {
+
 		mapper.room_insert(dto);
+		ato.setAttend_target_room(dto.getRoom_no());
+		mapper.attend_room_insert(ato);
 	}
+
 
 	// 특정 스터디방 정보
 	@Override
@@ -35,19 +40,16 @@ public class RoomServiceImpl implements RoomService {
 	// 스터디방 목록 조회
 	@Override
 	public List<RoomDTO> room_list() {
-		return mapper.room_list();
+		return mapper.member_select();
 	}
 
-	@Override
-	public List<RoomDTO> getroom(int room_no) {
-		return null;
-	}
 
 	@Override
 	public String roomList(String room_title) {
 		mapper.roomList(room_title);
 		return room_title;
 	}
+
 
 
 }

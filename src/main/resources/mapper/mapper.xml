@@ -110,33 +110,41 @@
 
 
     <!-- 스터디방 개설 -->
-    <insert id="room_insert"> INSERT INTO roomTBL (room_title, room_category, room_ruler, room_introduce, room_rule,
-                                                   room_open)
-                              VALUES (#{room_title}, #{room_category}, #{room_ruler}, #{room_introduce}, #{room_rule},
-                                      #{room_open}); </insert>
+    <insert id="room_insert" useGeneratedKeys="true" keyProperty="room_no">
+        INSERT INTO roomTBL (room_title, room_category, room_ruler, room_introduce, room_rule, room_open)
+        VALUES (#{room_title}, #{room_category}, #{room_ruler}, #{room_introduce}, #{room_rule}, #{room_open});
+    </insert>
+    <!-- 참가스터디 입력  -->
+    <insert id="attend_room_insert">
+        INSERT INTO attendTBL (attend_target_member, attend_target_room)
+        VALUES (#{attend_target_member}, #{attend_target_room});
+    </insert>
 
-    <select id="room_select" resultMap="room">
+    <!--   방정보 불러오기  -->
+    <select id="room_select" resultType="org.woorin.catudy.model.RoomDTO">
         SELECT *
         FROM roomTBL
         WHERE room_no = #{room_no};
+    </select>
+    <!--참여멤버 불러오기-->
+    <select id="attendRoom_select" resultType="org.woorin.catudy.model.AttendDTO">
+        SELECT *
+        FROM attendTBL
+        WHERE attend_target_room = #{attend_target_room};
     </select>
 
     <select id="room_list" resultType="org.woorin.catudy.model.RoomDTO">
-        select * from roomTBL;
+        select *
+        from roomTBL ;
     </select>
+
+
 
     <!--  test  -->
     <select id="roomList" resultType="String" parameterType="String"> Select Count(*)
-                                                                          from roomTBL
-                                                                          where room_title = #{room_title} </select>
+                                                                      from roomTBL
+                                                                      where room_title = #{room_title} </select>
 
-
-    <select id = "getroom" resultType="org.woorin.catudy.model.RoomDTO" parameterType="int">
-        SELECT *
-        FROM roomTBL
-        WHERE room_no = #{room_no};
-
-    </select>
 
     <select id="room_select_orderbyNo" resultMap="room">
         SELECT *
