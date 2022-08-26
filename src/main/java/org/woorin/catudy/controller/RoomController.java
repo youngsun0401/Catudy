@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.woorin.catudy.mapper.MainMapper;
 import org.woorin.catudy.model.AttendDTO;
 import org.woorin.catudy.model.RoomDTO;
+import org.woorin.catudy.service.ChattingService;
 import org.woorin.catudy.service.RoomService;
 
 import javax.servlet.http.HttpSession;
@@ -20,6 +21,8 @@ public class RoomController {
 
     @Autowired
     private RoomService roomService;
+    @Autowired
+    private ChattingService chattigService;
     @Autowired
     private MainMapper mapper;
 
@@ -53,10 +56,13 @@ public class RoomController {
         if( loginId(session) == 0 ){
             return "redirect:/login";
         }
+        //// 채팅방 대기열에 추가
+        String chattingPassword = "abc";
+        chattigService.newWaiting(room, loginId(session), chattingPassword);
 		//// TODO 미구현   자기가 속한 스터디방이 아니면 입장 거부됨
         model.addAttribute("member_no", loginId(session));
         model.addAttribute("room_no", room);
-        model.addAttribute("chatting_password", "abc");
+        model.addAttribute("chatting_password", chattingPassword);
         model.addAttribute("dto", dto);
         return "show/show";
 	}
