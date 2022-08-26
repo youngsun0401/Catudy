@@ -61,7 +61,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="row" style="height: 20%;">
+                <div class="row" style="height: 20%;" th:onclick="|location.href='@{show(room=${room.room_no})}'|">
                     <button th:if="${room.room_open} == true">신청하기</button>
                     <button th:if="${room.room_open} == false" style="pointer-events: none;">인원이 가득챴습니다</button>
                 </div>
