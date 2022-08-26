@@ -37,7 +37,7 @@ public class ChattingService {
 		System.out.println("채팅 세션 open: " + session.toString());
 		System.out.println("아아아아아");
 
-		//// TODO 대기열에 있는 회원이고 비밀번호가 맞는 경우에만 연결 수락
+		//// 대기열에 있는 회원이고 비밀번호가 맞는 경우에만 연결 수락
 		ChattingWaiter u = new ChattingWaiter(// 회원번호, 방번호, 비밀번호로 참여자 객체 만들기
 				member_no_of(session), // 
 				room_no_of(session), 
@@ -46,7 +46,6 @@ public class ChattingService {
 		System.out.print("접근 유효? ");
 		if( checkWaiting(u) ){
 			System.out.println("유효: 대기열에서 제거, 방에 입장");
-			// TODO 세션 등록
 			waiting.remove(u);// 대기열에서 제거
 			enterChatting(session);// 방에 들어감
 		}
@@ -65,9 +64,11 @@ public class ChattingService {
 	@OnMessage
 	public void onMessage(String msg, Session session) throws Exception{
 		// TODO 속한 방의 모든 접속자에게 메시지 전송
-		List<Session> room = rooms.get(session);// TODO 이거 안 되냐?
+		List<Session> room = rooms.get(session);
+		String chat = "{\"who\":"+member_no_of(session)+", \"msg\":\""+msg+"\"}";
+		System.out.println("보낼 채팅: "+chat);
 		for(Session temp: room){// 세션이 속한 방에 속한 세션들 전체 순회하며
-			temp.getBasicRemote().sendText(msg);// 메시지 전송 TODO 누구의 메시지인지 표시해야 함.
+			temp.getBasicRemote().sendText(chat);// 메시지 전송 TODO 누구의 메시지인지 표시해야 함.
 		}
 	}
 	
