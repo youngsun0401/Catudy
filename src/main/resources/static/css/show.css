@@ -156,3 +156,18 @@
 
 
 }
+
+.item{margin-top:15px}
+.item:first-child{margin-top:0px}
+.item .box{display:inline-block; max-width:180px; position:relative}
+.item .box .msg {background:#999999; border-radius:10px; padding:8px; text-align:left}
+.item .box .time {font-size:11px; color:#999; position:absolute; right: -75px; bottom:5px; width:70px}
+.item.mymsg{text-align:right}
+.item.mymsg .box::before{left:auto; right:-8px; border-left:8px solid #fee600; border-right:0;}
+.item.mymsg .box .msg{background:#fee600}
+.item.mymsg .box .time{right:auto; left:-75px}
+.item.mymsg .box{transition:all .3s ease-out; margin:0 20px 0 0;}
+.item.on .box{margin:0; opacity: 1;}
+
+input[type="text"]{border:0; background:#ddd; border-radius:5px; height:30px; padding-left:5px; box-sizing:border-box;}
+input[type="text"]::placeholder{color:#999}

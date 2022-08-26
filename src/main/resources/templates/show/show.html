@@ -51,7 +51,7 @@
         <div class="topBar">
 
             <div class="camName">
-                <span th:text="${dto.room_title}">방 제목</span>
+                <span th:text="${room.room_title}">방 제목</span>
                 <span class="tool">음소거 마이크 영상키기 전체화면기능</span>
             </div>
 
@@ -78,20 +78,41 @@
             <div class="chat">
                 <div class="line"></div>
                 <div class="chatBox">
-                    <div class="chatTitle">참여자 목록</div>
-                        <div class="memberList">
-                            <div>user1</div>
-                            <div>user2</div>
-                            <div>user3</div>
-                            <div>user4</div>
-                        </div>
+                    <div class="chatTitle">참여자 목록
+                        <span class="btn-group" role="group" aria-label="Basic outlined example">
+                            <button type="button" class="btn btn-outline-warning">출석</button>
+                            <button type="button" class="btn btn-outline-warning">퇴실</button>
+                        </span>
+                    </div>
+                    <div class="memberList">
+                        <th:block th:each="nicks, loop : ${nicks}">
+                            <div class="card">
+                                <div class="card-body" th:text="${nicks}">
+                                    user
+                                </div>
+                            </div>
+                        </th:block>
+                    </div>
 
                     <div class="chatTitle">실시간 채팅</div>
                     <div class="chatScreen">
-                        여기는 채팅화면
+                        <!-- 상대가 보낸 메세지-->
+                        <div class="item">
+                            <div class="box">
+                                <p class="msg">안녕하세요</p>
+                            </div>
+                        </div>
+                        <!--내가 보낸 메세지-->
+                        <div class="item mymsg">
+                            <div class="box">
+                                <p class="msg">안녕하세요</p>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="typing"><input id="chattingInput" type="text" placeholder="대화를 입력하세요">
-                        <button onclick="chat()">go</button>
+                    <div class="typing">
+                        <input id="chattingInput" type="text" placeholder="대화를 입력하세요">
+                        <button onclick="chat()" class="btn btn-warning">go</button>
                     </div>
                 </div>
             </div>
