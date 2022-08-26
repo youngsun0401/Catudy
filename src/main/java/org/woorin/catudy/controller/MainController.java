@@ -40,8 +40,8 @@ public class MainController {
 
     // 기능 확인을 위한 임시 페이지입니다.
     @GetMapping("/roomInfo")
-    public String roomInfo(Model model) {
-        RoomDTO aRoom =  roomService.getRoom(1);
+    public String roomInfo(@RequestParam("id") int room_no, Model model) {
+        RoomDTO aRoom =  roomService.getRoom(room_no);
         model.addAttribute("room", aRoom);
 
         // 방장이름 가져오기
