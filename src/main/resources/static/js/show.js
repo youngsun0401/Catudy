@@ -58,7 +58,7 @@ $(function(){
             var _val = $(this).val();
             var _class = $(this).attr("class");
             $(this).val('');
-            
+
             var _tar = $(".chat_wrap .inner").append('<div class="item '+_class+'"><div class="box"><p class="msg">'+_val+'</p><span class="time">'+currentTime()+'</span></div></div>');
 
             var lastItem = $(".chat_wrap .inner").find(".item:last");

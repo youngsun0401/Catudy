@@ -135,7 +135,9 @@
 
     <select id="room_list" resultMap="room">
         select *
-        from roomTBL ;
+        from roomTBL 
+        ORDER BY room_regdate
+        DESC;
     </select>
 
 

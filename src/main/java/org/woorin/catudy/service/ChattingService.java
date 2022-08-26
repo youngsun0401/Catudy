@@ -35,20 +35,28 @@ public class ChattingService {
 	@OnOpen
 	public void onOpen(Session session) {
 		System.out.println("채팅 세션 open: " + session.toString());
+		System.out.println("아아아아아");
 
-		//// TODO 대기열에 있는 회원이고 비밀번호가 맞는 경우에만 연결 수락
+		//// 대기열에 있는 회원이고 비밀번호가 맞는 경우에만 연결 수락
 		ChattingWaiter u = new ChattingWaiter(// 회원번호, 방번호, 비밀번호로 참여자 객체 만들기
 				member_no_of(session), // 
 				room_no_of(session), 
 				session.getRequestParameterMap().get("password").get(0));
 
+		System.out.print("접근 유효? ");
 		if( checkWaiting(u) ){
-			// TODO 세션 등록
+			System.out.println("유효: 대기열에서 제거, 방에 입장");
 			waiting.remove(u);// 대기열에서 제거
 			enterChatting(session);// 방에 들어감
 		}
 		else{// 부적절한 웹소켓 연결 시도
-			// TODO 연결 끊기 어케 함?
+			System.out.println("무효");
+			try {
+				session.close();
+				// TODO 연결 끊으면 에러 나는데 왜 나느지 모를
+			}
+			catch (Exception e) {
+			}
 		}
 	}
 	
@@ -56,9 +64,11 @@ public class ChattingService {
 	@OnMessage
 	public void onMessage(String msg, Session session) throws Exception{
 		// TODO 속한 방의 모든 접속자에게 메시지 전송
-		List<Session> room = rooms.get(session);// TODO 이거 안 되냐?
+		List<Session> room = rooms.get(session);
+		String chat = "{\"who\":"+member_no_of(session)+", \"msg\":\""+msg+"\"}";
+		System.out.println("보낼 채팅: "+chat);
 		for(Session temp: room){// 세션이 속한 방에 속한 세션들 전체 순회하며
-			temp.getBasicRemote().sendText(msg);// 메시지 전송 TODO 누구의 메시지인지 표시해야 함.
+			temp.getBasicRemote().sendText(chat);// 메시지 전송 TODO 누구의 메시지인지 표시해야 함.
 		}
 	}
 	
@@ -70,22 +80,31 @@ public class ChattingService {
 	}
 
 	//// n번 방에 m번 회원 접속 대기
-	public static void newWaiting(int room_no, int member_no){
+	public static void newWaiting(int room_no, int member_no, String password){
+		System.out.println(room_no+"번 방에 "+member_no+"번 회원 접속 대기");
 		waiting.add(
-			new ChattingWaiter(room_no, member_no, "abc")
+			new ChattingWaiter(member_no, room_no, password)
 		);
 	}
 
 	//// 적절한 연결 시도 검사
 	public static boolean checkWaiting(ChattingWaiter u){
-		// TODO 대기열에 있는 것 중 하나와 매개변수가 같은 값을 가지는지 확인
-		// TODO 지금은 그냥 무조건 참 반환
-		return true;
+		System.out.print("채팅 대기열: 일치하는 요소 찾기 …");
+		for( ChattingWaiter temp: waiting ) {
+			if( temp.getMember_no().equals(u.getMember_no())
+			&&  temp.getRoom_no().equals(u.getRoom_no())
+			&&  temp.getPassword().equals(u.getPassword())) {
+				System.out.println(" 찾음");
+				return true;
+			}
+		}
+		System.out.println(" 못 찾음");
+		return false;
 	}
 
 	//// 방에 참여자 추가
 	public static void enterChatting(Session session){
-		System.out.print("방에 참여자 추가 시도");
+		System.out.println("방에 참여자 추가 시도");
 		List<Session> room = study2chat.get(room_no_of(session));// 참여할 방
 
 		if( room == null ){// 해당 방이 없으면
