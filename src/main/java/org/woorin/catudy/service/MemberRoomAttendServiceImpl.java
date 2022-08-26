@@ -1,5 +1,9 @@
 package org.woorin.catudy.service;
 
+import java.lang.reflect.Member;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.woorin.catudy.mapper.MainMapper;
@@ -23,6 +27,7 @@ public class MemberRoomAttendServiceImpl{
         AttendDTO attend = new AttendDTO();
         attend.setAttend_target_room(room.getRoom_no());
         attend.setAttend_target_member(member.getMember_no());
+        attend.setAttend_comment("attend_comment_for test");
         return mapper.attend_room_insert(attend);
     }
 
@@ -36,6 +41,18 @@ public class MemberRoomAttendServiceImpl{
 
     /// 미구현 목록
     // @번 멤버가 참석한 스터디 목록을 가져옵니다.
+    public List<RoomDTO> getMyRooms(MemberDTO member) {
+
+        List<AttendDTO> attends = mapper.member_attended_room(member.getMember_no());
+        List<RoomDTO> rooms = new ArrayList<RoomDTO>();
+        
+        for(AttendDTO attend : attends){
+            rooms.add(mapper.room_select(attend.getAttend_target_room()));
+        }
+
+        // 가져온 방 번호 목록에서 방제를 가져옵니다.
+        return rooms;
+    }
     // @번 멤버가 참석한 @번 스터디방의 상세정보를 가져옵니다.
 
 }

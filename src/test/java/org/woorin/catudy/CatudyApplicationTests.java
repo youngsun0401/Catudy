@@ -29,6 +29,7 @@ class CatudyApplicationTests {
 	// @Autowired private MemberMapper memberMapper;
 	// @Autowired private MemberRoomAttendanceMapper attendance;
 	@Autowired private MemberRoomAttendServiceImpl svc;
+	
 
 	@Test
 	void contextLoads() {
@@ -40,8 +41,8 @@ class CatudyApplicationTests {
 		room.setRoom_no(1);
 
 		// MemberRoomAttendServiceImpl svc = new MemberRoomAttendServiceImpl();
-		// svc.memberRoomJoin(member, room);
-		svc.memberRoomQuit(member, room);
+		svc.memberRoomJoin(member, room);
+		// svc.memberRoomQuit(member, room);
 	}
 	
 // 	//// 회원 추가

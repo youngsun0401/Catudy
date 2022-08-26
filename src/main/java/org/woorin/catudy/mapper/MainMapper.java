@@ -45,7 +45,7 @@ public interface MainMapper {
     AttendDTO attendRoom_select(int attend_target_room);
 
     // 해당 멤버가 참가한 방
-    AttendDTO member_attended_room(int attend_target_member);
+    List<AttendDTO> member_attended_room(int attend_target_member);
 
     List<AttendDTO> attendRoom_select();
 

@@ -47,9 +47,9 @@
     <div class="index-user-content">
         <p>내 스터디</p>
         <div class="user-info">
-            <div>유저 정보 1</div>
-            <div>유저 정보 2</div>
-            <div>유저 정보 3</div>
+            <ul th:each="myRoom : ${myRoomList}">
+                <li><span th:text="${myRoom.room_title}"></span></li>
+            </ul>
         </div>
     </div>
 </div>
@@ -104,9 +104,9 @@
 <!-- 스터디 공간 -->
 <div class="room-container">
     <div class="room-content">
-        <!-- 01 -->
-        <div class="room-box list10" th:each="room, loop: ${roomList}" id="rooms_list">
 
+        <!-- 01 -->
+        <!-- <div class="room-box list10" th:each="room, loop: ${roomList}" id="rooms_list">
             <a th:href="@{/show(room=${room.room_no})}">
                 <div class="room-img">
                     <p> 3 / 4</p>
@@ -118,8 +118,8 @@
                     <span class="room-tag">#배고파</span>
                 </div>
             </a>
-        </div>
-
+        </div> -->
+        
     </div>
 
     <div class="middle-line">

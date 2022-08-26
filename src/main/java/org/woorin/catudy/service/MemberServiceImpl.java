@@ -49,7 +49,8 @@ public class MemberServiceImpl implements MemberService {
 	// 회원 목록
 	@Override
 	public List<MemberDTO> member_list() {
-		return mapper.member_list();
+		// return mapper.member_list();
+		return null;
 	}
 
 	// 회원 삭제

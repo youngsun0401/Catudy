@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.woorin.catudy.model.MemberDTO;
 import org.woorin.catudy.model.RoomDTO;
+import org.woorin.catudy.service.MemberRoomAttendServiceImpl;
 import org.woorin.catudy.service.MemberService;
 import org.woorin.catudy.service.RoomService;
 
@@ -25,13 +29,24 @@ public class MainController {
     @Autowired
     MemberService memberService;
 
+    @Autowired
+    MemberRoomAttendServiceImpl memberRoomAttendService;
+
     @GetMapping("/")
-    public String indexPage(Model model) {
+    public String indexPage(Model model, HttpServletRequest request) {
 		System.out.println("HELLO");
 		List<RoomDTO> roomList = roomService.room_list();
         List<MemberDTO> memberList = memberService.member_list();
         model.addAttribute("roomList", roomList);
         model.addAttribute("memberList", memberList);
+
+        // 멤버 번호로 참여한 방을 불러옵니다.
+        MemberDTO member = new MemberDTO();
+        HttpSession session = request.getSession();
+        String member_no = (String)session.getAttribute("member_no");
+        // member.setMember_no(Integer.parseInt(member_no));
+        member.setMember_no(1);
+        model.addAttribute("myRoomList", memberRoomAttendService.getMyRooms(member));
         return "index";
     }
 
