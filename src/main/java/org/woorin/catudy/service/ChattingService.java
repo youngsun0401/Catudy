@@ -81,8 +81,9 @@ public class ChattingService {
 
 	//// n번 방에 m번 회원 접속 대기
 	public static void newWaiting(int room_no, int member_no, String password){
+		System.out.println(room_no+"번 방에 "+member_no+"번 회원 접속 대기");
 		waiting.add(
-			new ChattingWaiter(room_no, member_no, password)
+			new ChattingWaiter(member_no, room_no, password)
 		);
 	}
 
