@@ -17,6 +17,9 @@ public interface MainMapper {
     // member 정보 1개 가져오기
     MemberDTO memberOneSelect(String member_id);
 
+    List<MemberDTO> member_select();// 회원 목록 조회
+
+
     // 로그인 비밀번호 매치
     String memberRealPassword(String member_id);
 
@@ -76,5 +79,5 @@ public interface MainMapper {
 
     void roomList(@Param("room_title") String room_title);
 
-    List<RoomDTO> member_select();// 회원 목록 조회
+
 }

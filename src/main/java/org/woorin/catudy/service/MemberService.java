@@ -1,10 +1,9 @@
 package org.woorin.catudy.service;
 
-import java.lang.reflect.Member;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.woorin.catudy.model.MemberDTO;
+import org.woorin.catudy.model.RoomDTO;
 
 
 public interface MemberService {
@@ -17,7 +16,7 @@ public interface MemberService {
 	// 회원가입 아이디 중복체크
 	int memberIdCheck(String member_id);
 	// 회원 목록
-	List<MemberDTO> member_list();
+	List<MemberDTO> member_select();
 
 	// 회원가입 닉네임 중복체크
 	int memberNickCheck(String member_nick);
@@ -31,7 +30,7 @@ public interface MemberService {
 
 
 
-    // 회원정보 수정인
+	// 회원정보 수정인
 	// 
 	// 
 	// 

@@ -133,7 +133,7 @@
         WHERE attend_target_room = #{attend_target_room};
     </select>
 
-    <select id="room_list" resultType="org.woorin.catudy.model.RoomDTO">
+    <select id="room_list" resultMap="room">
         select *
         from roomTBL ;
     </select>

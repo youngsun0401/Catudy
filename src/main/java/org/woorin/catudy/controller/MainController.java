@@ -29,7 +29,7 @@ public class MainController {
     public String indexPage(Model model) {
 		System.out.println("HELLO");
 		List<RoomDTO> roomList = roomService.room_list();
-        List<MemberDTO> memberList = memberService.member_list();
+        List<MemberDTO> memberList = memberService.member_select();
         model.addAttribute("roomList", roomList);
         model.addAttribute("memberList", memberList);
         return "index";
