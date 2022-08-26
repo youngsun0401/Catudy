@@ -48,7 +48,7 @@
         <p>내 스터디</p>
         <div class="user-info">
             <ul th:each="myRoom : ${myRoomList}">
-                <li><span th:text="${myRoom.room_title}"></span></li>
+                <li><a th:href="@{/show(id=${myRoom.room_no})}">[[${myRoom.room_title}]]</a></li>
             </ul>
         </div>
     </div>

@@ -43,9 +43,8 @@ public class MainController {
         // 멤버 번호로 참여한 방을 불러옵니다.
         MemberDTO member = new MemberDTO();
         HttpSession session = request.getSession();
-        String member_no = (String)session.getAttribute("member_no");
-        // member.setMember_no(Integer.parseInt(member_no));
-        member.setMember_no(1);
+        Integer member_no = (Integer)session.getAttribute("member_no");
+        member.setMember_no(member_no);
         model.addAttribute("myRoomList", memberRoomAttendService.getMyRooms(member));
         return "index";
     }
