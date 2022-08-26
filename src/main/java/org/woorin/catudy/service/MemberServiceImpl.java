@@ -8,8 +8,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.woorin.catudy.mapper.MainMapper;
 import org.woorin.catudy.mapper.MemberMapper;
-import org.woorin.catudy.model.AttendDTO;
 import org.woorin.catudy.model.MemberDTO;
+import org.woorin.catudy.model.RoomDTO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -48,9 +48,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 	// 회원 목록
 	@Override
-	public List<MemberDTO> member_list() {
-		// return mapper.member_list();
-		return null;
+	public List<MemberDTO> member_select() {
+		return mapper.member_select();
 	}
 
 	// 회원 삭제

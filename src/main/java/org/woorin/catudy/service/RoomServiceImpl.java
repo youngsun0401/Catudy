@@ -41,7 +41,7 @@ public class RoomServiceImpl implements RoomService {
 	// 스터디방 목록 조회
 	@Override
 	public List<RoomDTO> room_list() {
-		return mapper.member_select();
+		return mapper.room_list();
 	}
 
 

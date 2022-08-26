@@ -140,9 +140,11 @@
         where attend_target_member = #{attend_target_member}
     </select>
 
-    <select id="room_list" resultType="org.woorin.catudy.model.RoomDTO">
+    <select id="room_list" resultMap="room">
         select *
-        from roomTBL ;
+        from roomTBL 
+        ORDER BY room_regdate
+        DESC;
     </select>
 
 
