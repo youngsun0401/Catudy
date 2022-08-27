@@ -44,8 +44,11 @@ public class MainController {
         MemberDTO member = new MemberDTO();
         HttpSession session = request.getSession();
         Integer member_no = (Integer)session.getAttribute("member_no");
-        member.setMember_no(member_no);
-        model.addAttribute("myRoomList", memberRoomAttendService.getMyRooms(member));
+        System.out.println(member_no);
+        if (member_no != null){
+            member.setMember_no(member_no);
+            model.addAttribute("myRoomList", memberRoomAttendService.getMyRooms(member));
+        }
         return "index";
     }
 
