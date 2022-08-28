@@ -107,7 +107,7 @@
 
         <!-- 01 -->
         <div class="room-box list10" th:each="room, loop: ${roomList}" id="rooms_list">
-
+            <form method="post" action="memberRoomJoin">
             <a th:href="@{/roomInfo(id=${room.room_no})}">
             <!-- <a th:href="@{/show(room=${room.room_no})}"> -->
                 <div class="room-img">
@@ -116,11 +116,12 @@
                 <div class="room-info">
                     <p th:text="${room.room_title}">방제목</p>
                     <span class="room-tag" th:text="${room.room_ruler}">#공무원</span>
-                    <span class="room-tag">#열공하자</span>
+                    <input type="submit" class="Btn bg-yel" id="applyBtn" value="신청">
                     <span class="room-tag">#배고파</span>
                 </div>
             </a>
-        </div> -->
+            </form>
+        </div>
         
     </div>
 
