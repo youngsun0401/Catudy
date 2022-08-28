@@ -144,6 +144,7 @@ a {
 .index-user-content>p {
     font-weight: 700;
     font-size: 16px;
+
 }
 
 .study-join-btn {
@@ -174,11 +175,17 @@ a {
 
 .user-info {
     height: 300px;
-    background-color: #FEF9E7;
     border-radius: 10px;
     padding: 20px;
     display: flex;
-    justify-content: space-between;
+    background-image:url("20201020035723_1526967_910_340.jpg");
+}
+
+.roomList{
+    margin-top: 10px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+
 }
 
 /* 섹션 타이틀 */

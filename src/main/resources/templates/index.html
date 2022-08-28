@@ -31,27 +31,20 @@
             <p>내 스터디</p>
             <div class="user-study-time">
                 <p>캐터디, 지금 바로 참여하세요.</p>
-                <button class="study-join-btn" th:href="@{board/recruit.html}">스터디 구하러가기</button>
+                <a th:href="@{/recruit}"><button class="study-join-btn">스터디 구하러가기</button></a>
             </div>
         </th:block>
         <th:block th:if="${session.member_id != null}">
             <p>내 스터디</p>
             <div class="user-study-time">
-                <p>
-                <ul th:each="myRoom : ${myRoomList}">
-                    <li><a th:href="@{/show(id=${myRoom.room_no})}">[[${myRoom.room_title}]]</a></li>
-                </ul>
+                <p th:each="myRoom : ${myRoomList}">
+                    <a th:href="@{/show(id=${myRoom.room_no})}" class="roomList">[[${myRoom.room_title}]]</a>
                 </p>
-                <button class="study-join-btn">스터디 참여하기</button>
             </div>
         </th:block>
     </div>
     <div class="index-user-content">
-        <p>내 스터디</p>
         <div class="user-info">
-            <ul th:each="myRoom : ${myRoomList}">
-                <li><a th:href="@{/show(id=${myRoom.room_no})}">[[${myRoom.room_title}]]</a></li>
-            </ul>
         </div>
     </div>
 </div>
@@ -65,12 +58,8 @@
             <th:block th:unless="${session.member_id == null}">
                 <span onclick="location.href='/createRoom'" class="line-text madeBtn ">스터디만들기</span>
             </th:block>
-
-
         </p>
-
     </div>
-
     <div class="tab-sort">
         <ul style="list-style-type: none;" class="sort-list">
             <li>
