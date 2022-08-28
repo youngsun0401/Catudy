@@ -269,7 +269,7 @@
     </select>
 
     <update id="post_view_count">
-        UPDATE PostTBL 
+        UPDATE postTBL 
         SET post_viewcount = post_viewcount + 1
         WHERE post_no = #{post_no}
     </update>
