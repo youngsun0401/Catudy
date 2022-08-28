@@ -6,7 +6,7 @@ const showings = document.getElementsByClassName('showing');
 const testgrid = document.getElementById('test_grid');
 
 const myVideo = document.createElement('video')
-myVideo.style.width = '200px';
+myVideo.style.width = '100%';
 myVideo.style.height = '100%';
 
 const room_name = document.getElementById('room_name').value;
@@ -48,8 +48,8 @@ navigator.mediaDevices.getUserMedia({
         call.on('stream', async (receivedStream) => {
             // console.log('receivedStream', showingsCount, receivedStream)
             const video = document.createElement('video')
-            video.style.width = '200px';
-            video.style.height = '200px';
+            video.style.width = '100%';
+            video.style.height = '100%';
             tagTest = video;
 
             // 처음보는 스트림(사용자의 영상)이라면
@@ -73,8 +73,8 @@ navigator.mediaDevices.getUserMedia({
         const call = await myPeer.call(userId, stream, { metadata: { userId: peers.id } })
         console.log('새로운 참가자 들어오는중..')
         const video = document.createElement('video')
-        video.style.width = '200px';
-        video.style.height = '200px';
+        video.style.width = '100%';
+        video.style.height = '100%';
 
         call.on('stream', async(userVideoStream) => {
             // console.log('userVideoStream', userVideoStream, streamIdList.indexOf(userVideoStream.id))
