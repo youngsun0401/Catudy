@@ -3,9 +3,9 @@ socketSetting();
 
 //// 채팅 보내기
 function chat(){
-	socket.send(
-		document.getElementById('chattingInput').value
-	);
+	let value = document.getElementById('chattingInput').value;
+	if( value == '' ) return;// 빈 문자열은 전송 안 함.
+	socket.send(value);
 }
 
 //// 채팅 설정
@@ -41,10 +41,15 @@ function socketSetting(){
 	};
 }
 
+//// 새 말풍선 삽입
 function addChatDiv(speaker, msg){
 	let wholeBox = document.getElementsByClassName('chatScreen')[0];
 	let oneChat = document.createElement('div');
 	oneChat.className = "item"
 	oneChat.innerHTML = '<div class="box"><div>'+speaker+'</div><p class="msg">'+msg+'</p></div>';
 	wholeBox.appendChild(oneChat);
+	//// 맨 아래로 스크롤
+	wholeBox.scrollTop = wholeBox.scrollHeight;
+	//// 입력창 비우기
+	document.getElementById('chattingInput').value = '';
 }
