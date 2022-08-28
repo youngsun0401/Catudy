@@ -21,8 +21,8 @@ function socketSetting(){
 
 	socket.onmessage = function(event) {
 		oneChat = JSON.parse(`${event.data}`);
-		console.log('[채팅]받은 데이터: ');
-		console.log(oneChat);
+		console.log('발화자: '+oneChat.member_nick);
+		console.log('발화내용: '+oneChat.msg);
 	};
 
 	socket.onclose = function(event) {
