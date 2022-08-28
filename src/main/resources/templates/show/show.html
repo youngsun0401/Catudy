@@ -96,18 +96,12 @@
 
                     <div class="chatTitle">실시간 채팅</div>
                     <div class="chatScreen">
-                        <!-- 상대가 보낸 메세지-->
-                        <div class="item">
-                                <div th:text="닉네임">user</div>
-                                <p class="msg"></p>
-                        </div>
-                        
-
+                        <!-- 여기 채팅 내역 -->
                     </div>
-                    <div class="typing">
+                    <form class="typing" onsubmit="chat(); return false;">
                         <input id="chattingInput" type="text" placeholder="대화를 입력하세요">
-                        <button onclick="chat()" class="btn btn-warning">go</button>
-                    </div>
+                        <button type="submit" class="btn btn-warning">go</button>
+                    </form>
                 </div>
             </div>
             <div style="clear: both;"></div>
