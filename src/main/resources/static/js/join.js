@@ -59,7 +59,7 @@ function mySubmit() {
 
     let check_id = RegExp(/^[a-zA-Z0-9]{4,10}$/); // 아이디 유효성 검사 (영문 및 숫자 4-10글자)
     let check_pw = RegExp(/^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{4,20}$/); // 비밀번호 유효성 검사 (영문 및 숫자 4-20글자)
-    let check_nick = RegExp(/^([a-zA-Z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣]).{2,10}$/); // 닉네임 유효성 검사 (영문/한글/숫자 2-10글)
+    let check_nick = RegExp(/^([a-zA-Z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣]).{1,10}$/); // 닉네임 유효성 검사 (영문/한글/숫자 2-10글)
     //let memberInsertForm = $('#memberInsertForm');
 
 
@@ -122,7 +122,9 @@ function mySubmit() {
     //memberInsertForm.submit();
 
 
+
 }
+
 
 
 

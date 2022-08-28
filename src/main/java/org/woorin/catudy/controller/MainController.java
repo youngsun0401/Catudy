@@ -36,12 +36,15 @@ public class MainController {
     MemberRoomAttendServiceImpl memberRoomAttendService;
 
     @GetMapping("/")
-    public String indexPage(Model model, HttpServletRequest request) {
+    public String indexPage(Model model, HttpServletRequest request, RoomDTO room) {
 		System.out.println("HELLO");
 		List<RoomDTO> roomList = roomService.room_list();
         List<MemberDTO> memberList = memberService.member_select();
         model.addAttribute("roomList", roomList);
         model.addAttribute("memberList", memberList);
+
+
+
 
         // 멤버 번호로 참여한 방을 불러옵니다.
         MemberDTO member = new MemberDTO();
@@ -52,6 +55,9 @@ public class MainController {
             member.setMember_no(member_no);
             model.addAttribute("myRoomList", memberRoomAttendService.getMyRooms(member));
         }
+        //스터디방 신청
+        memberRoomJoin(member, room);
+
         return "index";
     }
 
@@ -85,5 +91,11 @@ public class MainController {
         RoomDTO room = roomService.getRoom(1);
         model.addAttribute("room", room);
         return  "room/roomInfo";
+    }
+
+    // 스터디 신청
+    @PostMapping("/applyStudy")
+    public String memberRoomJoin(MemberDTO member, RoomDTO room) {
+        return "redirect:/";
     }
 }

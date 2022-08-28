@@ -80,6 +80,7 @@ public class MemberController {
             System.out.println(resultDTO.getMember_nick());
 
             System.out.println("로그인 성공 / 세션 등록 완료.");
+
             return "redirect:/";
         } else {
             rttr.addFlashAttribute("msg", false);

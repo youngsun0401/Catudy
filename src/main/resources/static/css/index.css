@@ -527,6 +527,32 @@ input::-webkit-input-placeholder {
     display: none;
 }
 
+.Btn{
+    margin-top: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 0;
+    outline: 0;
+}
+
+.bg-yel{
+    background-color: #F4D03F;
+}
+
+.Btn:hover{
+    margin-top: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #F4D03F;
+    cursor: pointer;
+    border-radius: 8px;
+    border: solid 1px #F4D03F;
+    background-color: white;
+}
+
 
 
 
