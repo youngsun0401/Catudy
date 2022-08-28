@@ -22,11 +22,11 @@ public class MemberRoomAttendServiceImpl{
     MainMapper mapper;
     
     // @번 멤버가 @번 방에 가입합니다.
-    public int memberRoomJoin(MemberDTO member, RoomDTO room){
+    public int memberRoomJoin(int room, int member){
 
         AttendDTO attend = new AttendDTO();
-        attend.setAttend_target_room(room.getRoom_no());
-        attend.setAttend_target_member(member.getMember_no());
+        attend.setAttend_target_room(room);
+        attend.setAttend_target_member(member);
         attend.setAttend_comment("attend_comment_for test");
         return mapper.attend_room_insert(attend);
     }

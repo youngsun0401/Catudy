@@ -58,13 +58,8 @@ public class MainController {
     }
     
     @PostMapping("/memberRoomJoin")
-    public String memberRoomJoin(RoomDTO room, HttpServletRequest request){
-        System.out.println(room);
-        HttpSession session = request.getSession();
-        MemberDTO member = new MemberDTO();
-        member.setMember_no((int)session.getAttribute("member_no"));
-        memberRoomAttendService.memberRoomJoin(member, room);
-
+    public String memberRoomJoin(int room_no, HttpSession session){
+    	memberRoomAttendService.memberRoomJoin(room_no, loginId(session));
         return "redirect:/";
     }
 
