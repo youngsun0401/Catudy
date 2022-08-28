@@ -10,7 +10,7 @@ function chat(){
 
 //// 채팅 설정
 function socketSetting(){
-	let addr = "wss://192.168.10.86:8443/chat?room="+room_no+"&member="+member_no+"&password="+chatting_password;// ??? 현재 주소 로컬호스트
+	let addr = "wss://192.168.10.97:8443/chat?room="+room_no+"&member="+member_no+"&password="+chatting_password;// ??? 현재 주소 로컬호스트
 	console.log(addr);
 	socket = new WebSocket(addr);
 	// let socket = new WebSocket("ws://localhost:8080/chatt");

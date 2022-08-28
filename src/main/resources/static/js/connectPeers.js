@@ -11,7 +11,7 @@ myVideo.style.height = '100%';
 
 const room_name = document.getElementById('room_name').value;
 
-const socket = io('wss://localhost:3000', {
+const socket2 = io('wss://192.168.10.97:3000', {
     transports: ['websocket']
 })
 var tagTest;
@@ -35,7 +35,7 @@ navigator.mediaDevices.getUserMedia({
     // peer start.
     myPeer.on('open', id => {
         console.log(`${room_name}방 참가중`, id)
-        socket.emit('join-room', room_name, id)
+        socket2.emit('join-room', room_name, id)
     })
 
     await addVideoStream(myVideo, stream, showings[0])
@@ -68,7 +68,7 @@ navigator.mediaDevices.getUserMedia({
     })
 
     // 들어온 사람과 통신을 시도합니다.
-    socket.on('user-connected', async userId => {
+    socket2.on('user-connected', async userId => {
         console.log('새로운 참가자 연결됨', userId)
         const call = await myPeer.call(userId, stream, { metadata: { userId: peers.id } })
         console.log('새로운 참가자 들어오는중..')
@@ -103,7 +103,7 @@ navigator.mediaDevices.getUserMedia({
     })
 })
 
-socket.on('user-disconnected', userId => {
+socket2.on('user-disconnected', userId => {
     console.log('userDisconnected', userId)
     if (peers[userId]) {
         peers[userId].close()

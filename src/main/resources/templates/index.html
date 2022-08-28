@@ -107,7 +107,7 @@
                     <p th:text="${room.room_title}">방제목</p>
                     <span class="room-tag" th:text="${room.room_ruler}">방장</span>
                     <form method="post" action="/memberRoomJoin">
-                        <input type="hidden" th:value="${room.room_no}">
+                        <input type="hidden" name="room_no" th:value="${room.room_no}">
                         <input type="submit" class="Btn bg-yel" id="applyBtn" value="신청">
                     </form>
                 </div>
