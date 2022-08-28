@@ -83,6 +83,12 @@ public class MemberServiceImpl implements MemberService {
 		return member.member_find(member_no);
 	}
 
+	// 회원번호 → 닉네임
+	@Override
+	public String member_nick(int member_no) {
+		return member_find(member_no).getMember_nick();
+	}
+
 	@Override
 	public List<MemberDTO> member_list_on_a_room(int room_no) {
 		// room_no 방의 참여자 번호들을 가져옵니다.

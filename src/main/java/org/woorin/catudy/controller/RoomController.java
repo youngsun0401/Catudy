@@ -1,24 +1,23 @@
 package org.woorin.catudy.controller;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.woorin.catudy.mapper.MainMapper;
 import org.woorin.catudy.model.AttendDTO;
 import org.woorin.catudy.model.MemberDTO;
 import org.woorin.catudy.model.RoomDTO;
-import org.woorin.catudy.service.MemberService;
 import org.woorin.catudy.service.ChattingService;
+import org.woorin.catudy.service.MemberService;
 import org.woorin.catudy.service.RoomService;
-
-import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 @Controller
 public class RoomController {
@@ -57,6 +56,11 @@ public class RoomController {
 	//// 스터디방 입장
 	@GetMapping("/show")
 	public String show(@RequestParam("id") Integer room, Model model, HttpSession session) {
+        //// 비로그인이면 로그인하러 가라고 하기
+        if( loginId(session) == 0 ){
+            return "redirect:/login";
+        }
+        
         RoomDTO aRoom = roomService.getRoom(room);
         model.addAttribute("room", aRoom);
 
@@ -71,14 +75,14 @@ public class RoomController {
             member_nicks.add(members.next().getMember_nick());
         }
         model.addAttribute("nicks", member_nicks);
-
-        //// 비로그인이면 로그인하러 가라고 하기
-        if( loginId(session) == 0 ){
-            return "redirect:/login";
-        }
+        
         //// 채팅방 대기열에 추가
         String chattingPassword = "abc";
-        chattigService.newWaiting(room, loginId(session), chattingPassword);
+        chattigService.newWaiting(
+        		room, 
+        		loginId(session), 
+        		chattingPassword, 
+        		memberService.member_nick(loginId(session)));
 		//// TODO 미구현   자기가 속한 스터디방이 아니면 입장 거부됨
         model.addAttribute("member_no", loginId(session));
         model.addAttribute("room_no", room);
@@ -88,6 +92,9 @@ public class RoomController {
         return "show/show";
 	}
 
+	
+	
+	
     // 회원번호 가져오기
     private static int loginId( HttpSession session ) {
         if( session.getAttribute("member_no") == null ) return 0;

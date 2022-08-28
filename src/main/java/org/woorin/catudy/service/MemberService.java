@@ -25,6 +25,9 @@ public interface MemberService {
 	// 비밀번호같은 민감한 정보는 가져오지 않습니다.
 	MemberDTO member_find(int member_no);
 
+	// 회원번호 → 닉네임
+	public String member_nick(int member_no);
+
 	// 한 방에 있는 팀원의 목록을 가져옵니다.
     List<MemberDTO> member_list_on_a_room(int room_no);
 

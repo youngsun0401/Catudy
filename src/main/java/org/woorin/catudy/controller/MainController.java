@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.woorin.catudy.model.MemberDTO;
 import org.woorin.catudy.model.RoomDTO;
 import org.woorin.catudy.service.MemberRoomAttendServiceImpl;
+import org.woorin.catudy.service.ChattingService;
 import org.woorin.catudy.service.MemberService;
 import org.woorin.catudy.service.RoomService;
 
@@ -28,6 +29,8 @@ public class MainController {
 
     @Autowired
     MemberService memberService;
+    @Autowired
+    ChattingService chattest;
 
     @Autowired
     MemberRoomAttendServiceImpl memberRoomAttendService;
