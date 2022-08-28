@@ -21,6 +21,7 @@ function socketSetting(){
 
 	socket.onmessage = function(event) {
 		oneChat = JSON.parse(`${event.data}`);
+		addChatDiv(oneChat.member_nick, oneChat.msg);
 		console.log('발화자: '+oneChat.member_nick);
 		console.log('발화내용: '+oneChat.msg);
 	};
@@ -38,4 +39,12 @@ function socketSetting(){
 	socket.onerror = function(error) {
 		console.log(`[error] ${error.message}`);
 	};
+}
+
+function addChatDiv(speaker, msg){
+	let wholeBox = document.getElementsByClassName('chatScreen')[0];
+	let oneChat = document.createElement('div');
+	oneChat.className = "item"
+	oneChat.innerHTML = '<div class="box"><div>'+speaker+'</div><p class="msg">'+msg+'</p></div>';
+	wholeBox.appendChild(oneChat);
 }

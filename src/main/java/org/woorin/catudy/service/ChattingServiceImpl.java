@@ -138,9 +138,9 @@ public class ChattingServiceImpl implements ChattingService {
 	@Override
 	public void leaveChatting(Session session){
 		List<ChattingUser> room = rooms.get(s2user.get(session));// 해당 방
-		rooms.remove(s2user.get(session));// 사용자-채팅방 매핑 제거
+		rooms.remove(room);// 사용자-채팅방 매핑 제거
+		room.remove(s2user.get(session));// 방에서 참여자 제거
 		s2user.remove(session);// 세션-사용자 매핑 제거
-		room.remove(session);// 방에서 참여자 제거
 		//// TODO 참여자 0명이면 방 제거
 	}
 	
