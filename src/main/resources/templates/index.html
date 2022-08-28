@@ -28,18 +28,20 @@
 <div class="index-container">
     <div class="index-user-time">
         <th:block th:if="${session.member_id == null}">
-            <p>내 공부 기록</p>
+            <p>내 스터디</p>
             <div class="user-study-time">
-                <p>로그인한 상태에는 유저의 공부 시간 출력</p>
                 <p>캐터디, 지금 바로 참여하세요.</p>
-                <button class="study-join-btn">스터디 참여하기</button>
+                <button class="study-join-btn" th:href="@{board/recruit.html}">스터디 구하러가기</button>
             </div>
         </th:block>
         <th:block th:if="${session.member_id != null}">
-            <p>내 공부 기록</p>
+            <p>내 스터디</p>
             <div class="user-study-time">
-                <p>로그인한 상태에는 유저의 공부 시간 출력</p>
-                <p>캐터디, 지금 바로 참여하세요.</p>
+                <p>
+                <ul th:each="myRoom : ${myRoomList}">
+                    <li><a th:href="@{/show(id=${myRoom.room_no})}">[[${myRoom.room_title}]]</a></li>
+                </ul>
+                </p>
                 <button class="study-join-btn">스터디 참여하기</button>
             </div>
         </th:block>
@@ -58,16 +60,15 @@
 <!-- 캐터디 타이틀 -->
 <div class="section-title" style="padding: 20px 150px; margin-top: 50px;">
     <div>
-        <p>캐터디 
+        <p>캐터디
             <span class="line-text">둘러보기</span>
             <th:block th:unless="${session.member_id == null}">
                 <span onclick="location.href='/createRoom'" class="line-text madeBtn ">스터디만들기</span>
-            </th:block>     
+            </th:block>
 
-           
 
-        </p> 
-        
+        </p>
+
     </div>
 
     <div class="tab-sort">
@@ -107,22 +108,24 @@
 
         <!-- 01 -->
         <div class="room-box list10" th:each="room, loop: ${roomList}" id="rooms_list">
-            <form method="post" action="memberRoomJoin">
+
             <a th:href="@{/roomInfo(id=${room.room_no})}">
-            <!-- <a th:href="@{/show(room=${room.room_no})}"> -->
+                <!-- <a th:href="@{/show(room=${room.room_no})}"> -->
                 <div class="room-img">
                     <p> 3 / 4</p>
                 </div>
                 <div class="room-info">
                     <p th:text="${room.room_title}">방제목</p>
-                    <span class="room-tag" th:text="${room.room_ruler}">#공무원</span>
-                    <input type="submit" class="Btn bg-yel" id="applyBtn" value="신청">
-                    <span class="room-tag">#배고파</span>
+                    <span class="room-tag" th:text="${room.room_ruler}">방장</span>
+                    <form method="post" action="/memberRoomJoin">
+                        <input type="hidden" th:value="${room.room_no}">
+                        <input type="submit" class="Btn bg-yel" id="applyBtn" value="신청">
+                    </form>
                 </div>
             </a>
-            </form>
+
         </div>
-        
+
     </div>
 
     <div class="middle-line">
