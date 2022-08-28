@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.woorin.catudy.model.MemberDTO;
 import org.woorin.catudy.model.RoomDTO;
+import org.woorin.catudy.service.ChattingService;
 import org.woorin.catudy.service.MemberService;
 import org.woorin.catudy.service.RoomService;
 
@@ -24,6 +25,8 @@ public class MainController {
 
     @Autowired
     MemberService memberService;
+    @Autowired
+    ChattingService chattest;
 
     @GetMapping("/")
     public String indexPage(Model model) {
@@ -32,6 +35,7 @@ public class MainController {
         List<MemberDTO> memberList = memberService.member_select();
         model.addAttribute("roomList", roomList);
         model.addAttribute("memberList", memberList);
+        System.out.println("=-======================================");
         return "index";
     }
 

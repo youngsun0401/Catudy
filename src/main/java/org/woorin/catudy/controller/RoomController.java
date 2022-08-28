@@ -11,6 +11,7 @@ import org.woorin.catudy.mapper.MainMapper;
 import org.woorin.catudy.model.AttendDTO;
 import org.woorin.catudy.model.RoomDTO;
 import org.woorin.catudy.service.ChattingService;
+import org.woorin.catudy.service.MemberService;
 import org.woorin.catudy.service.RoomService;
 
 import javax.servlet.http.HttpSession;
@@ -23,6 +24,8 @@ public class RoomController {
     private RoomService roomService;
     @Autowired
     private ChattingService chattigService;
+    @Autowired
+    private MemberService memberService;
     @Autowired
     private MainMapper mapper;
 
@@ -50,7 +53,7 @@ public class RoomController {
     
 	//// 스터디방 입장
 	@GetMapping("/show")
-	public String show(@RequestParam Integer room, Model model, HttpSession session) {
+	public String show(@RequestParam int room, Model model, HttpSession session) {
         RoomDTO dto = roomService.getRoom(room);
         //// 비로그인이면 로그인하러 가라고 하기
         if( loginId(session) == 0 ){
@@ -58,7 +61,11 @@ public class RoomController {
         }
         //// 채팅방 대기열에 추가
         String chattingPassword = "abc";
-        chattigService.newWaiting(room, loginId(session), chattingPassword);
+        chattigService.newWaiting(
+        		room, 
+        		loginId(session), 
+        		chattingPassword, 
+        		memberService.member_nick(loginId(session)));
 		//// TODO 미구현   자기가 속한 스터디방이 아니면 입장 거부됨
         model.addAttribute("member_no", loginId(session));
         model.addAttribute("room_no", room);

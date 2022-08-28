@@ -20,9 +20,9 @@ function socketSetting(){
 	};
 
 	socket.onmessage = function(event) {
-		chat = JSON.parse(`${event.data}`);
+		oneChat = JSON.parse(`${event.data}`);
 		console.log('[채팅]받은 데이터: ');
-		console.log(chat);
+		console.log(oneChat);
 	};
 
 	socket.onclose = function(event) {
