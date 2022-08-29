@@ -25,18 +25,46 @@
     <!-- content field start -->
 
 
+    <div class="wrapper">
+        <div class="post_view_container">
+            <div class="post_view_title">
+                <p th:text="${dto.post_title}"></p>
+            </div>
+            <div class="post_view_info">
+                <div class="post_view_writer">
+                    <span th:text="${dto.post_writer_dto.member_nick}"></span>
+                </div>
+                <div class="post_view_date">
+                    <span th:text="${#dates.format(dto.post_regdate, 'yy.MM.dd')}"></span>
+                </div>
+            </div>
+            <div class="sector_line last"></div>
+            <div class="post_view_content">
+                <p th:utext="${dto.post_content}"></p>
+                <!-- <p th:text="${dto.post_viewcount}"></p> -->
+                <!-- <p th:text="${session.member_id}"></p> -->
+            </div>
+            <div class="sector_line last"></div>
+            <div>
+                <button class="btn_list" onclick="location.href='/recruit'">목록</button>
+                
+            </div>
+        </div>
+    </div>
 
-<p>상세페이지임</p>
-<p th:each="dto: ${dtos}"></p>
-<p th:text="${dto.post_title}"></p>
-<p th:utext="${dto.post_content}"></p>
-<p th:text="${dto.post_writer_dto.member_nick}"></p>
-<p th:text="${dto.post_regdate}"></p>
-<p th:text="${dto.post_viewcount}"></p>
-<p th:text="${session.member_id}"></p>
 
 
-<form action="" method="post">
+        <!-- <p>상세페이지임</p>
+        <p th:each="dto: ${dtos}"></p>
+        <p th:text="${dto.post_title}"></p>
+        <p th:utext="${dto.post_content}"></p>
+        <p th:text="${dto.post_writer_dto.member_nick}"></p>
+        <p th:text="${dto.post_regdate}"></p>
+        <p th:text="${dto.post_viewcount}"></p>
+        <p th:text="${session.member_id}"></p> -->
+        
+
+    <!-- <form action="" method="post">
     <input type="text" name="comment_content" id="comment_content">
     <button type="button">등록</button>
     <input type="hidden" name="post_no" id="post_no">
@@ -48,7 +76,7 @@
 <div>
     <p> 글쓴이 : <span th:text="${comment_writer}"></span></p>
     <p> 내용 : <span th:text="${comment_content}"></span></p>
-</div>
+</div> -->
 
 
 
