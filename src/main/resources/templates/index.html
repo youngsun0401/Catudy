@@ -16,10 +16,14 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--제이쿼리cdn-->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <header th:replace="/fragment/head.html :: headerFragment"></header>
 </head>
 
 <body>
+
 
         <!-- 상단 유저 정보 -->
         <div class="index-container">
@@ -223,13 +227,280 @@
                     </div>
                 </div>
 
+    <!-- 상단 유저 정보 -->
+    <div class="index-container">
+        <div class="index-user-time">
+            <th:block th:if="${session.member_id == null}">
+                <p>내 스터디</p>
+                <div class="user-study-time">
+                    <p>캐터디, 지금 바로 참여하세요.</p>
+                    <a th:href="@{/recruit}"><button class="study-join-btn">스터디 구하러가기</button></a>
+                </div>
+            </th:block>
+            <th:block th:if="${session.member_id != null}">
+                <p>내 스터디</p>
+                <div class="user-study-time">
+                    <p th:each="myRoom : ${myRoomList}">
+                        <a th:href="@{/show(id=${myRoom.room_no})}" class="roomList">[[${myRoom.room_title}]]</a>
+                    </p>
+                </div>
+            </th:block>
+        </div>
+        <div class="index-user-content">
+            <div class="user-info">
+            </div>
+        </div>
+    </div>
+    <!-- 상단 유저 정보 끝 -->
+
+    <!-- 캐터디 타이틀 -->
+    <div class="section-title" style="padding: 20px 150px; margin-top: 50px;">
+        <div>
+            <p>캐터디
+                <span class="line-text">둘러보기</span>
+                <th:block th:unless="${session.member_id == null}">
+                    <span onclick="location.href='/createRoom'" class="line-text madeBtn ">스터디만들기</span>
+                </th:block>
+            </p>
+        </div>
+        <div class="tab-sort">
+            <ul style="list-style-type: none;" class="sort-list">
+                <li>
+                    <input type="checkbox" id="insert-room">
+                    <label for="insert-room">참여 가능한 캐터디 보기</label>
+                </li>
+                <li>
+                    <select class="select-sort">
+                        <option>가나다순</option>
+                        <option>역순</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 캐터디 타이틀 -->
+
+    <!-- 탭 메뉴 -->
+    <div class="tab-container">
+        <div class="tab-menu">
+            <ul style="list-style-type: none;" class="tab-list">
+                <li>전체</li>
+                <li>어학</li>
+                <li>자격증</li>
+                <li>공무원</li>
+                <li>기타</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 탭 메뉴 끝 -->
+
+    <!-- 스터디 공간 -->
+    <div class="room-container">
+        <div class="room-content">
+
+            <!-- 01 -->
+            <div class="room-box list10" th:each="room, loop: ${roomList}" id="rooms_list">
+
+                <a th:href="@{/roomInfo(id=${room.room_no})}">
+                    <!-- <a th:href="@{/show(room=${room.room_no})}"> -->
+                    <div class="room-img">
+                        <p> 3 / 4</p>
+                    </div>
+                    <div class="room-info">
+                        <p th:text="${room.room_title}">방제목</p>
+                        <span class="room-tag" th:text="${room.room_ruler}">방장</span>
+                        <form method="post" action="/memberRoomJoin">
+                            <input type="hidden" name="room_no" th:value="${room.room_no}">
+                            <input type="submit" class="Btn bg-yel" id="applyBtn" value="신청">
+                        </form>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="middle-line">
+            <div class="more-btn" id="moreRoom">더 보기</div>
+        </div>
+    </div>
+    <!-- 스터디 공간 끝 -->
+
+    <!-- 모집해요 -->
+    <div class="board-container">
+        <div class="board-title">
+            <p>캐터디 모집</p>
+        </div>
+        <div class="board-tag">
+            <div>
+                <span>#공무원</span>
+                <span>#토익</span>
+                <span>#취업</span>
+                <span>#취준</span>
+                <span>#임용</span>
+                <span>#자율</span>
+            </div>
+            <div class="board-search">
+                <input type="search" placeholder="Search" class="search-input">
+                <button type="submit" class="btn-search">검색</button>
+            </div>
+        </div>
+
+        <div class="middle-line"></div>
+
+        <div class="board-list">
+            <!-- 모집중 -->
+            <div class="board-box">
+                <div class="board-badge">
+                    <div class="badge-state">모집중</div>
+                    <div class="upload-time">30초 전</div>
+                </div>
+                <div class="board-subject">
+                    <p class="subject-title">스터디원 구해요</p>
+                    <p class="subject-date">22/08/11 ~ 22/08/31</p>
+                </div>
+                <div class="board-message">
+                    <div>스터디 방식 - 화면 공유를 하며 게더타운에서 모각코 형식 진행됩니다
+
+                        공부 방식은 자율이며 개인 공부를 하다 막히거나 궁금한 점이 생길 시 1대1 Q&A를 진행합니다.(질문은 개인적으로 다가가서 여쭤보셔야합니다)
+
+                        에러 났는데 도저히 혼자 고치지 못할 경우도 질문하셔도 됩니다
+
+                        스터디 인원: 모이는대로 받을 계획입니다.
+
+                        모집 하다보면 10명 중 1명 정도가 정기적으로 들어오시게 되는데
+
+                        그런 분들로 인원이 꽤 찼다 싶으면 모집 종료할 생각입니다
+
+                        관심 있으신 분들은 링크를 타고 와주세용</div>
+                </div>
+                <div class="board-hashtag">
+                    <span>#토익</span>
+                    <span>#만점</span>
+                    <span>#열심히하자</span>
+                </div>
+            </div>
+            <!-- 모집 완료 -->
+            <div class="board-box">
+                <div class="board-badge">
+                    <div class="badge-state">모집중</div>
+                    <div class="upload-time">30초 전</div>
+                </div>
+                <div class="board-subject">
+                    <p class="subject-title">스터디원 구해요</p>
+                    <p class="subject-date">22/08/11 ~ 22/08/31</p>
+                </div>
+                <div class="board-message">
+                    <div>현재 Node.js를 공부하며 백앤드를 공부한 지 3개월 조금 지난 뉴비입니다.
+
+                        스터디를 통해 프로젝트의 백앤드 부분도 실무 프로젝트 흉내내기 정도 수준이겠지만 프론트분들과 함께 A~Z까지 진행해보고
+
+                        혼자 공부할 땐 전혀 몰랐던 정보도 얻고 그동안 스터디 덕을 많이 봤다고 생각합니다
+
+                        한 분야(프론트, 백앤드 1택)만 깊게 파는게 취업 시장에선 더 유리하겠으나
+
+                        평소에 웹 전반적으로 깊은 지식을 쌓아두고 싶단 생각을 해왔기 때문에
+
+                        이번에도 스터디를 통해 덕을 좀 보려합니다(입문 수준으로 백앤드 강의 중간중간 나오는 프론트 강의만 조금씩 본 수준입니다)
+                    </div>
+                </div>
+                <div class="board-hashtag">
+                    <span>#토익</span>
+                    <span>#만점</span>
+                    <span>#열심히하자</span>
+                </div>
+            </div>
+            <!-- 모집 완료 -->
+            <div class="board-box">
+                <div class="board-badge">
+                    <div class="badge-state">모집중</div>
+                    <div class="upload-time">30초 전</div>
+                </div>
+                <div class="board-subject">
+                    <p class="subject-title">스터디원 구해요</p>
+                    <p class="subject-date">22/08/11 ~ 22/08/31</p>
+                </div>
+                <div class="board-message">
+                    <div>프로젝트에 참여할 앱 디자이너 한 분 구하고 있습니다. 현재 팀 내 기획은 많이 진행된 상황입니다. 일주일 중 하루는 대면 회의를 진행하는 점 참고해주세요. 관심 있으시면
+                        아래 오픈 채팅방으로 연락 주세요.</div>
+                </div>
+                <div class="board-hashtag">
+                    <span>#토익</span>
+                    <span>#만점</span>
+                    <span>#열심히하자</span>
+                </div>
+            </div>
+            <!-- 모집 완료 -->
+            <div class="board-box">
+                <div class="board-badge">
+                    <div class="badge-state">모집중</div>
+                    <div class="upload-time">30초 전</div>
+                </div>
+                <div class="board-subject">
+                    <p class="subject-title">스터디원 구해요</p>
+                    <p class="subject-date">22/08/11 ~ 22/08/31</p>
+                </div>
+                <div class="board-message">
+                    <div>포폴용 사이드 프로젝트 팀원 모집합니다.
+
+                        현재 팀원들 전부 회사를 다니고 있어서 시간적으로는 여유롭게 진행할 생각이라 프로젝트 규모에 따라 다르겠지만 최소 5~6개월 정도 잡고 있습니다.
+
+                        백엔드는 java, spring, jpa 를 쓸 생각이고
+
+                        프론트는 react, typescript를 쓸 생각입니다.
+
+                        ci/cd, aws 프리티어로 실제로 서버 배포까지 경험해볼 생각입니다.
+
+                        초보도 상관 없습니다. 시간적 여유가 어느정도 있기 때문에 실제로 경험해보면서 공부하고 자기가 쓰고 싶은 기술, 기능들 쓰면 됩니다.
+
+                        아직 구체적으로 정해진게 없기 때문에 의견이 있으시면 자유롭게 말씀하시면 됩니다.</div>
+                </div>
+                <div class="board-hashtag">
+                    <span>#토익</span>
+                    <span>#만점</span>
+                    <span>#열심히하자</span>
+                </div>
+            </div>
+            <!-- 모집 완료 -->
+            <div class="board-box">
+                <div class="board-badge">
+                    <div class="badge-state finish">모집 완료</div>
+                    <div class="upload-time">30초 전</div>
+                </div>
+                <div class="board-subject">
+                    <p class="subject-title">스터디원 구해요</p>
+                    <p class="subject-date">22/08/11 ~ 22/08/31</p>
+                </div>
+                <div class="board-message">
+                    <div>스터디 소개와 개설 이유 : 현재 프론트엔드 개발자로 일하며 풀스택이 목표가 되었고, 현재 진행 중인 프로젝트는 퍼블리싱 쪽과 거리가 먼 클라이언트 사이드 렌더링을 위주로
+                        하는 프로젝트를 진행해 보면서 확실히 백엔드 쪽도 공부해 보고 싶다는 욕심이 생김.</div>
+                </div>
+                <div class="board-hashtag">
+                    <span>#토익</span>
+                    <span>#만점</span>
+                    <span>#열심히하자</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="board-more-btn">더 보기</div>
+
+
             </div>
             <div class="board-more-btn">더 보기</div>
+
 
 
         </div>
 
     <footer th:replace="/fragment/foot.html :: footerFragment"></footer>
+
+    </div>
+
+    <footer th:replace="/fragment/foot.html :: footerFragment"></footer>
+    <!--js링크-->
+    <script src="/js/index.js"></script>
+
 </body>
 
 </html>
